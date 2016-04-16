@@ -1246,7 +1246,7 @@ sup {
     height: 60px;
     padding: 20px 25px;
     font-weight: 400;
-    letter-spacing: 10px;
+    letter-spacing: 0px;
     color: #FFFFFF;
 }
 
@@ -1295,8 +1295,12 @@ sup {
     text-decoration: none;
 }
 
+.right-nav-toggle {
+    float: left;
+    padding: 14px 10px 6px 25px;
+}
 .navbar-form {
-    margin-top: 11px;
+    margin-top: 13px;
     padding: 0;
 }
 
