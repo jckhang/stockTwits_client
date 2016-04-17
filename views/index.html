@@ -78,31 +78,33 @@
                     <form class="navbar-form navbar-left">
                         <input type="text" class="form-control" placeholder="Search Symbols: AAPL" style="width: 175px">
                     </form>
-                    <div class="right-nav-toggle">
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> All
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Financial
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Health
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Utility
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Consumer
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Industry
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Service
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon" aria-hidden="true"></span> Material
-                        </button>
+                    <div class="btn-group right-nav-toggle" id="sector-filter">
+                        <form action="" method="get" accept-charset="utf-8">
+                            <label class="btn-filter active btn btn-default" value="All">
+                                All
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Financial">
+                                Financial
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Health">
+                                Health
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Utility">
+                                Utility
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Consumer">
+                                Consumer
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Industry">
+                                Industry
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Service">
+                                Service
+                            </label>
+                            <label class="btn-filter btn btn-default" value="Material">
+                                Material
+                            </label>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -113,7 +115,7 @@
             <nav>
                 <ul class="nav luna-nav">
                     <li class="nav-category">
-                        Main
+                        Main <span>haha</span>
                     </li>
                     <li class="active">
                         <a href="http://webapplayers.com/luna_admin-v1.1/index.html">Dashboard</a>
@@ -199,7 +201,7 @@
                         </a>
                     </li>
                     <li class="nav-info">
-                        <i class="pe pe-7s-shield text-accent"></i>
+                        
                         <div class="m-t-xs">
                             <span class="c-white">LUNA</span> admin theme with Dark UI style for monitoring and administration web applications.
                         </div>
@@ -497,10 +499,10 @@
     <script src="js/toastr.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/jquery.flot.min.js"></script>
-    <script src="jsjquery.flot.resize.min.js"></script>
+    <script src="js/jquery.flot.resize.min.js"></script>
     <script src="js/jquery.flot.spline.js"></script>
     <!-- App scripts -->
-    <script src="js/luna.js"></script>
+    <script src="js/stocktwits-dashboard.js"></script>
     <script>
     $(document).ready(function() {
 
@@ -640,19 +642,6 @@
         };
 
         $.plot($("#flot-line-chart"), [data2, data1], chartUsersOptions);
-
-
-        // Run toastr notification with Welcome message
-        setTimeout(function() {
-            toastr.options = {
-                "positionClass": "toast-top-right",
-                "closeButton": true,
-                "progressBar": true,
-                "showEasing": "swing",
-                "timeOut": "6000"
-            };
-            toastr.warning('<strong>Welcome to LUNA v.1.1</strong> <br/><small>Premium admin theme with Dark UI style. </small>');
-        }, 1600)
 
 
     });

@@ -1,26 +1,20 @@
-/**
- * LUNA - Responsive Admin Theme
- *
- */
+// StockTwits Realtime Dashboard
 
-$(document).ready(function () {
-
-
-
+$(document).ready(function() {
     // Handle minimalize left menu
-    $('.left-nav-toggle a').on('click', function(event){
+    $('.left-nav-toggle a').on('click', function(event) {
         event.preventDefault();
         $("body").toggleClass("nav-toggle");
     });
 
 
     // Hide all open sub nav menu list
-    $('.nav-second').on('show.bs.collapse', function () {
+    $('.nav-second').on('show.bs.collapse', function() {
         $('.nav-second.in').collapse('hide');
     })
 
     // Handle panel toggle
-    $('.panel-toggle').on('click', function(event){
+    $('.panel-toggle').on('click', function(event) {
         event.preventDefault();
         var hpanel = $(event.target).closest('div.panel');
         var icon = $(event.target).closest('i');
@@ -32,16 +26,28 @@ $(document).ready(function () {
         // Toggle icon from up to down
         icon.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
         hpanel.toggleClass('').toggleClass('panel-collapse');
-        setTimeout(function () {
+        setTimeout(function() {
             hpanel.resize();
             hpanel.find('[id^=map-]').resize();
         }, 50);
     });
 
     // Handle panel close
-    $('.panel-close').on('click', function(event){
+    $('.panel-close').on('click', function(event) {
         event.preventDefault();
         var hpanel = $(event.target).closest('div.panel');
         hpanel.remove();
+    })
+    $('.btn-filter').click(function() {
+        $('.btn-filter').not(this).removeClass('active'); // remove buttonactive from the others
+        $(this).toggleClass('active')
+        
+        // if ($(this).hasClass("active")) {
+        //     console.log('active to inactive')
+        //     $(this).removeClass('active');
+        // } else {
+        //     $(this).addClass('active');
+        //     console.log('inactive to active')
+        // }
     });
 });

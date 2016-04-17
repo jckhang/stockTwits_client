@@ -535,7 +535,9 @@ fieldset[disabled] .btn-danger.focus {
     color: #f6a821;
     text-decoration: none;
 }
-
+/*.btn-filter{
+    border: none;
+}*/
 .content > div {
     opacity: 0;
 }
