@@ -1,3 +1,4 @@
+
 .btn:active,
 .btn.active {
     box-shadow: none;
@@ -535,9 +536,7 @@ fieldset[disabled] .btn-danger.focus {
     color: #f6a821;
     text-decoration: none;
 }
-/*.btn-filter{
-    border: none;
-}*/
+
 .content > div {
     opacity: 0;
 }
@@ -619,7 +618,9 @@ fieldset[disabled] .btn-danger.focus {
     color: #DB524B;
 }
 
+
 /* MARGINS & PADDINGS */
+
 .p-xxs {
     padding: 5px !important;
 }
@@ -952,7 +953,7 @@ body {
 
 .content {
     margin-top: 60px;
-    margin-left: 200px;
+    margin-left: 300px;
     position: relative;
     padding: 30px;
     transition: margin-left 0.3s ease-out;
@@ -977,17 +978,13 @@ body {
 .navigation {
     margin-top: 60px;
     background-color: #24262d;
-    width: 200px;
+    width: 300px;
     position: absolute;
     left: 0;
     bottom: 0;
     top: 0;
     transition: left 0.3s ease-out;
     -webkit-transition: left 0.3s ease-out;
-}
-
-.navigation nav {
-    background-color: #2a2d35;
 }
 
 .navigation:before {
@@ -1000,7 +997,7 @@ body {
     z-index: -1;
     left: 0;
     background-color: #24262d;
-    width: 200px;
+    width: 300px;
 }
 
 body.nav-toggle .content {
@@ -1008,11 +1005,11 @@ body.nav-toggle .content {
 }
 
 body.nav-toggle .navigation {
-    left: -200px;
+    left: -300px;
 }
 
 body.nav-toggle .navigation:before {
-    left: -200px;
+    left: -300px;
 }
 
 @media (max-width: 767px) {
@@ -1020,25 +1017,20 @@ body.nav-toggle .navigation:before {
         margin-left: 0;
         padding: 30px 0 10px 0;
     }
-
     .navigation {
-        left: -200px;
+        left: -300px;
         z-index: 2;
     }
-
     .navigation:before {
-        left: -200px;
+        left: -300px;
     }
-
     body.nav-toggle .content {
         margin-left: 0;
     }
-
     body.nav-toggle .navigation {
         left: 0;
         z-index: 2;
     }
-
     body.nav-toggle .navigation:before {
         left: 0;
     }
@@ -1066,7 +1058,9 @@ body.blank .content {
     max-width: 800px;
 }
 
+
 /* Various */
+
 a {
     color: #f6a821;
     text-decoration: none;
@@ -1200,7 +1194,9 @@ sup {
     padding-right: 10px;
 }
 
+
 /* Icons */
+
 .font-example-box:hover {
     color: #ffffff;
 }
@@ -1227,7 +1223,9 @@ sup {
     margin: 10px;
 }
 
+
 /* UI Sortable */
+
 .ui-sortable .panel-body {
     cursor: move;
 }
@@ -1243,7 +1241,7 @@ sup {
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:focus {
-    width: 200px;
+    width: 300px;
     background-color: #f6a821;
     height: 60px;
     padding: 20px 25px;
@@ -1301,6 +1299,7 @@ sup {
     float: left;
     padding: 14px 10px 6px 25px;
 }
+
 .navbar-form {
     margin-top: 13px;
     padding: 0;
@@ -1374,23 +1373,23 @@ sup {
 }
 
 .luna-nav.nav {
-    padding-top: 15px;
+    padding: 15px 10px 10px 10px;
 }
 
-.luna-nav.nav li > a,
+.luna-nav.nav table,
 .luna-nav.nav .nav-category {
     padding: 8px 15px 8px 25px;
     margin: 0 0;
 }
 
-.luna-nav.nav .nav-info {
-    margin-top: 50px;
-    padding: 20px 25px 25px 25px;
+.nav-info {
+    margin-top: 10px;
+    padding: 10px 25px 25px 25px;
     font-size: 12px;
     background-color: #24262d;
 }
 
-.luna-nav.nav .nav-info i {
+.nav-info i {
     font-size: 34px;
 }
 
@@ -1612,7 +1611,9 @@ sup {
     border-color: #4a4f5d;
 }
 
+
 /* Progress bar */
+
 .progress {
     border-radius: 2px;
     margin-bottom: 10px;
@@ -1954,7 +1955,9 @@ h6 .small,
     font-size: 16px;
 }
 
+
 /* Nestable list */
+
 .dd {
     position: relative;
     display: block;
@@ -2081,9 +2084,11 @@ h6 .small,
     box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
+
 /**
 * Nestable Extras
 */
+
 .nestable-lists {
     display: block;
     clear: both;
@@ -2296,6 +2301,11 @@ h6 .small,
 
 th {
     color: #ffffff;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
 }
 
 .table > thead > tr > td.success,
@@ -2617,7 +2627,9 @@ fieldset[disabled] .form-control {
     height: auto !important;
 }
 
+
 /* Charts */
+
 .flot-chart {
     display: block;
     height: 300px;

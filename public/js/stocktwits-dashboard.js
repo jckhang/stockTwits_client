@@ -41,13 +41,22 @@ $(document).ready(function() {
     $('.btn-filter').click(function() {
         $('.btn-filter').not(this).removeClass('active'); // remove buttonactive from the others
         $(this).toggleClass('active')
-        
-        // if ($(this).hasClass("active")) {
-        //     console.log('active to inactive')
-        //     $(this).removeClass('active');
-        // } else {
-        //     $(this).addClass('active');
-        //     console.log('inactive to active')
-        // }
     });
+    var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
+    var sector = "Technology";
+    $.getJSON(sectorAPI, {
+            sector: sector
+        })
+        .done(function(data) {
+            $.each(data[Object.keys(data)], function(i, item) {
+                var items = [];
+                items.push("<td>" + item.name + "</td>");
+                items.push('<td>' + item.sector + "</td>");
+                items.push("<td>" + item.price + "</td>");
+                items.push("<td>" + item.ebitda + "</td>");
+                $("<tr>", {
+                    html: items.join("\n")
+                }).appendTo(".symbol-table");
+            });
+        });
 });
