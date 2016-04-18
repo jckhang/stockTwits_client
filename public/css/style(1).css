@@ -1261,9 +1261,8 @@ sup {
 
 .navbar-brand span {
     letter-spacing: normal;
-    float: right;
-    font-size: 12px;
-    margin-left: -15px;
+    font-size: 11px;
+    margin-left: 10px;
     color: #fce2b4;
 }
 

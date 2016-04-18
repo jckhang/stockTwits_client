@@ -43,7 +43,7 @@ $(document).ready(function() {
         $(this).toggleClass('active')
     });
     var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
-    var sector = "all";
+    var sector = "All";
     $.getJSON(sectorAPI, {
             sector: sector
         })
