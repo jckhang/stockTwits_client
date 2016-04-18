@@ -2306,6 +2306,7 @@ th {
 
 td {
     padding: 8px;
+    font-size: 12px;
 }
 
 .table > thead > tr > td.success,

@@ -43,7 +43,7 @@ $(document).ready(function() {
         $(this).toggleClass('active')
     });
     var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
-    var sector = "Technology";
+    var sector = "all";
     $.getJSON(sectorAPI, {
             sector: sector
         })
@@ -59,4 +59,26 @@ $(document).ready(function() {
                 }).appendTo(".symbol-table");
             });
         });
+
+    $('.btn-filter').click(function() {
+        sector = $(this).attr('value');
+        console.log(sector);
+        $.getJSON(sectorAPI, {
+                sector: sector
+            })
+            .done(function(data) {
+                $(".symbol-table").empty();
+                console.log(data[Object.keys(data)]);
+                $.each(data[Object.keys(data)], function(i, item) {
+                    var items = [];
+                    items.push("<td>" + item.name + "</td>");
+                    items.push('<td>' + item.sector + "</td>");
+                    items.push("<td>" + item.price + "</td>");
+                    items.push("<td>" + item.ebitda + "</td>");
+                    $("<tr>", {
+                        html: items.join("\n")
+                    }).appendTo(".symbol-table");
+                });
+            });
+    });
 });
