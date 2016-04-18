@@ -1,5 +1,24 @@
 // StockTwits Realtime Dashboard
+var sector = "All";
+var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
 
+function symbolListSector(sector) {
+    $.getJSON(sectorAPI, {
+            sector: sector
+        })
+        .done(function(data) {
+            $.each(data[Object.keys(data)], function(i, item) {
+                var items = [];
+                items.push("<td>" + item.name + "</td>");
+                items.push('<td>' + item.sector + "</td>");
+                items.push("<td>" + item.price + "</td>"); // To be replaced by real Hotness data
+                items.push("<td>" + item.ebitda + "</td>"); // To be replaced by real B?
+                $("<tr>", {
+                    html: items.join("\n")
+                }).appendTo(".symbol-table");
+            });
+        });
+}
 $(document).ready(function() {
     // Handle minimalize left menu
     $('.left-nav-toggle a').on('click', function(event) {
@@ -42,43 +61,13 @@ $(document).ready(function() {
         $('.btn-filter').not(this).removeClass('active'); // remove buttonactive from the others
         $(this).toggleClass('active')
     });
-    var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
+    
     var sector = "All";
-    $.getJSON(sectorAPI, {
-            sector: sector
-        })
-        .done(function(data) {
-            $.each(data[Object.keys(data)], function(i, item) {
-                var items = [];
-                items.push("<td>" + item.name + "</td>");
-                items.push('<td>' + item.sector + "</td>");
-                items.push("<td>" + item.price + "</td>"); // To be replaced by real Hotness data
-                items.push("<td>" + item.ebitda + "</td>"); // To be replaced by real B/S data
-                $("<tr>", {
-                    html: items.join("\n")
-                }).appendTo(".symbol-table");
-            });
-        });
+    symbolListSector(sector);
 
     $('.btn-filter').click(function() {
         sector = $(this).attr('value');
-        console.log(sector);
-        $.getJSON(sectorAPI, {
-                sector: sector
-            })
-            .done(function(data) {
-                $(".symbol-table").empty();
-                console.log(data[Object.keys(data)]);
-                $.each(data[Object.keys(data)], function(i, item) {
-                    var items = [];
-                    items.push("<td>" + item.name + "</td>");
-                    items.push('<td>' + item.sector + "</td>");
-                    items.push("<td>" + item.price + "</td>");
-                    items.push("<td>" + item.ebitda + "</td>");
-                    $("<tr>", {
-                        html: items.join("\n")
-                    }).appendTo(".symbol-table");
-                });
-            });
+        $(".symbol-table").empty();
+        symbolListSector(sector);
     });
 });
