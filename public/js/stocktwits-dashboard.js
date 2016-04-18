@@ -52,8 +52,8 @@ $(document).ready(function() {
                 var items = [];
                 items.push("<td>" + item.name + "</td>");
                 items.push('<td>' + item.sector + "</td>");
-                items.push("<td>" + item.price + "</td>");
-                items.push("<td>" + item.ebitda + "</td>");
+                items.push("<td>" + item.price + "</td>"); // To be replaced by real Hotness data
+                items.push("<td>" + item.ebitda + "</td>"); // To be replaced by real B/S data
                 $("<tr>", {
                     html: items.join("\n")
                 }).appendTo(".symbol-table");
