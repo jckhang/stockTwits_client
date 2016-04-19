@@ -9,7 +9,7 @@
     <!-- Page title -->
     <title>StockTwits Dashboard</title>
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/toastr.min.css">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="css/helper.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style(1).css">
+    <link rel="stylesheet" href="css/stroke-icon.css">
     <style type="text/css">
     .jqstooltip {
         position: absolute;
@@ -60,8 +60,8 @@
                 <div class="navbar-header">
                     <div id="mobile-menu">
                         <div class="left-nav-toggle">
-                            <a href="/">
-                                <i class="stroke-hamburgermenu"></i>
+                            <a href="">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -72,11 +72,11 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <div class="left-nav-toggle">
                         <a href="">
-                            <i class="stroke-hamburgermenu"></i>
+                            <i class="fa fa-bars" aria-hidden="true"></i>
                         </a>
                     </div>
                     <form class="navbar-form navbar-left">
-                        <input type="text" class="form-control" placeholder="Search Symbols: AAPL" style="width: 175px">
+                        <input type="text" id="symbol-search" class="form-control" placeholder="Search Symbols: AAPL" style="width: 175px">
                     </form>
                     <div class="btn-group right-nav-toggle" data-toggle="buttons" id="sector-filter">
                         <label class="btn-filter active btn btn-default" value="All">
@@ -133,282 +133,65 @@
         <!-- End navigation-->
         <!-- Main content-->
         <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="view-header">
-                            <div class="pull-right text-right" style="line-height: 14px">
-                                <small>Luna Admin Theme<br>Dashboard<br> <span class="c-white">v.1.0</span></small>
-                            </div>
-                            <div class="header-icon">
-                                <i class="pe page-header-icon pe-7s-shield"></i>
-                            </div>
-                            <div class="header-title">
-                                <h3 class="m-b-xs">Luna Admin Theme</h3>
-                                <small>
-                                    Special minimal admin theme with Dark UI style for monitoring or administration web applications.
-                                </small>
+            <div class="symbol-panel">
+                <h3 class="symbol-header">ACN (Accenture plc)</h3>
+            </div>
+            <div class="row content-upper">
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">B/S Chart</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">Symbol Info</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-2" class="tab-pane">
+                            <div class="panel-body">
+                                <strong class="c-white">Lorem ipsum dolor sit amet, consectetuer adipiscing</strong>
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                                <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When.</p>
                             </div>
                         </div>
-                        <hr>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2 col-xs-6">
-                        <div class="panel panel-filled">
+                        <div id="tab-1" class="tab-pane active">
                             <div class="panel-body">
-                                <h2 class="m-b-none">
-                                    206 <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i> +20%</span>
-                                </h2>
-                                <div class="small">% New Sessions</div>
-                                <div class="slight m-t-sm"><i class="fa fa-clock-o"> </i> Updated: <span class="c-white">10:22pm</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-xs-6">
-                        <div class="panel panel-filled">
-                            <div class="panel-body">
-                                <h2 class="m-b-none">
-                                    140 <span class="slight"><i class="fa fa-play fa-rotate-90 c-white"> </i> 5%</span>
-                                </h2>
-                                <div class="small">Total visitors</div>
-                                <div class="slight m-t-sm"><i class="fa fa-clock-o"> </i> Updated: <span class="c-white">9:10am</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-xs-6">
-                        <div class="panel panel-filled">
-                            <div class="panel-body">
-                                <h2 class="m-b-none">
-                                    262 <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i> +56%</span>
-                                </h2>
-                                <div class="small">Total users</div>
-                                <div class="slight m-t-sm"><i class="fa fa-clock-o"> </i> Updated: <span class="c-white">05:42pm</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-xs-6">
-                        <div class="panel panel-filled">
-                            <div class="panel-body">
-                                <h2 class="m-b-none">
-                                    62% <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i> +18%</span>
-                                </h2>
-                                <div class="small">Bounce Rate</div>
-                                <div class="slight m-t-sm"><i class="fa fa-clock-o"> </i> Updated: <span class="c-white">04:00am</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-xs-12">
-                        <div class="panel panel-filled" style="position:relative;height: 114px">
-                            <div style="position: absolute;bottom: 0;left: 0;right: 0">
-                                <span class="sparkline"><canvas width="313" height="47" style="display: inline-block; width: 313px; height: 47px; vertical-align: top;"></canvas></span>
-                            </div>
-                            <div class="panel-body">
-                                <div class="m-t-sm">
-                                    <div class="pull-right">
-                                        <a href="http://webapplayers.com/luna_admin-v1.1/#" class="btn btn-default btn-xs">See locations</a>
+                                <div class="flot-chart">
+                                    <div class="flot-chart-content" id="flotExample2" style="padding: 0px; position: relative;">
+                                        <canvas class="flot-base" width="902" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 451px; height: 300px;"></canvas>
+                                        <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                                            <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 15px; text-align: center;">0</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 83px; text-align: center;">5</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 149px; text-align: center;">10</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 217px; text-align: center;">15</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 286px; text-align: center;">20</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 354px; text-align: center;">25</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 423px; text-align: center;">30</div>
+                                            </div>
+                                            <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 271px; left: 6px; text-align: right;">0</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 217px; left: 6px; text-align: right;">5</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 163px; left: 0px; text-align: right;">10</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 108px; left: 0px; text-align: right;">15</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 54px; left: 0px; text-align: right;">20</div>
+                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 0px; text-align: right;">25</div>
+                                            </div>
+                                        </div>
+                                        <canvas class="flot-overlay" width="902" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 451px; height: 300px;"></canvas>
                                     </div>
-                                    <div class="c-white"><span class="label label-accent">+45</span> New visitor</div>
-                                    <span class="small c-white">120,312 <i class="fa fa-play fa-rotate-270 text-warning"> </i> -22%</span>
-                                    <!--<span class="sparkline"></span>-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h1 class="m-t-md m-b-xs" style="margin-top: 30px">
-                                    <i class="pe pe-7s-global text-warning"> </i>
-                                    1 460 ,00 <span class="slight"><i class="fa fa-play fa-rotate-270 text-warning"> </i> -22%</span>
-                                </h1>
-                                <div class="small">
-                                    <span class="c-white">Total users</span> from the beginning of activity. See detailed charts for more information locations and traffic source.
-                                </div>
-                                <div class="m-t-sm">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <small class="c-white">
-                                            </small>
-                                            <div class="sparkline3">
-                                                <canvas width="283" height="70" style="display: inline-block; width: 283px; height: 70px; vertical-align: top;"></canvas>
-                                            </div>
-                                            <small class="slight">
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="panel panel-filled">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="panel-body h-200 list">
-                                        <div class="stats-title pull-left">
-                                            <h4>Traffic source</h4>
-                                        </div>
-                                        <div class="m-t-xl">
-                                            <small>
-                                                More than 30% percent of users come from direct links. Check details page for more information.
-                                            </small>
-                                        </div>
-                                        <div class="progress m-t-xs full progress-small">
-                                            <div style="width: 35%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="35" role="progressbar" class=" progress-bar progress-bar-warning">
-                                                <span class="sr-only">35% Complete (success)</span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <small class="stat-label">Today</small>
-                                                <h4 class="m-t-xs">170,20 <i class="fa fa-level-up text-warning"></i></h4>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="stat-label">Last month %</small>
-                                                <h4 class="m-t-xs">%20,20 <i class="fa fa-level-down c-white"></i></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="panel-body">
-                                        <div class="text-center slight">
-                                        </div>
-                                        <div class="flot-chart" style="height: 160px;margin-top: 5px">
-                                            <div class="flot-chart-content" id="flot-line-chart" style="padding: 0px; position: relative;">
-                                                <canvas class="flot-base" width="792" height="320" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 396px; height: 160px;"></canvas>
-                                                <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
-                                                    <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 15px; text-align: center;">0</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 67px; text-align: center;">1</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 120px; text-align: center;">2</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 173px; text-align: center;">3</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 226px; text-align: center;">4</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 279px; text-align: center;">5</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 332px; text-align: center;">6</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 49px; top: 144px; left: 385px; text-align: center;">7</div>
-                                                    </div>
-                                                    <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 131px; left: 6px; text-align: right;">0</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 98px; left: 0px; text-align: right;">20</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 66px; left: 0px; text-align: right;">40</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 33px; left: 0px; text-align: right;">60</div>
-                                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 0px; text-align: right;">80</div>
-                                                    </div>
-                                                </div>
-                                                <canvas class="flot-overlay" width="792" height="320" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 396px; height: 160px;"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="small text-center">All active users from last month.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Phone</th>
-                                                <th>Street Address</th>
-                                                <th>% Share</th>
-                                                <th>City</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Abraham</td>
-                                                <td>076 9477 4896</td>
-                                                <td>294-318 Duis Ave</td>
-                                                <td>
-                                                    <div class="sparkline8">
-                                                        <canvas width="16" height="16" style="display: inline-block; width: 16px; height: 16px; vertical-align: top;"></canvas>
-                                                    </div>
-                                                </td>
-                                                <td>Vosselaar</td>
-                                                <td><a href="http://webapplayers.com/luna_admin-v1.1/#" class="btn btn-default btn-xs">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Phelan</td>
-                                                <td>0500 034548</td>
-                                                <td>680-1097 Mi Rd.</td>
-                                                <td>
-                                                    <div class="sparkline10">
-                                                        <canvas width="16" height="16" style="display: inline-block; width: 16px; height: 16px; vertical-align: top;"></canvas>
-                                                    </div>
-                                                </td>
-                                                <td>Lavoir</td>
-                                                <td><a href="http://webapplayers.com/luna_admin-v1.1/#" class="btn btn-default btn-xs active">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Raya</td>
-                                                <td>(01315) 27698</td>
-                                                <td>Ap #289-8161 In Avenue</td>
-                                                <td>
-                                                    <div class="sparkline11">
-                                                        <canvas width="16" height="16" style="display: inline-block; width: 16px; height: 16px; vertical-align: top;"></canvas>
-                                                    </div>
-                                                </td>
-                                                <td>Santomenna</td>
-                                                <td><a href="http://webapplayers.com/luna_admin-v1.1/#" class="btn btn-default btn-xs">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Azalia</td>
-                                                <td>0500 854198</td>
-                                                <td>226-4861 Augue. St.</td>
-                                                <td>
-                                                    <div class="sparkline12">
-                                                        <canvas width="16" height="16" style="display: inline-block; width: 16px; height: 16px; vertical-align: top;"></canvas>
-                                                    </div>
-                                                </td>
-                                                <td>Newtown</td>
-                                                <td><a href="http://webapplayers.com/luna_admin-v1.1/#" class="btn btn-default btn-xs">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garth</td>
-                                                <td>(01662) 59083</td>
-                                                <td>3219 Elit Avenue</td>
-                                                <td>
-                                                    <div class="sparkline13">
-                                                        <canvas width="16" height="16" style="display: inline-block; width: 16px; height: 16px; vertical-align: top;"></canvas>
-                                                    </div>
-                                                </td>
-                                                <td>Ternitz</td>
-                                                <td><a href="http://webapplayers.com/luna_admin-v1.1/#" class="btn btn-default btn-xs">View</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-b-accent m-t-sm">
-                            <div class="panel-body text-center p-m">
-                                <h2 class="font-light">
-                                    +280k downloads
-                                </h2>
-                                <small>New downloads from the last month.</small>
-                                <br> 120,312 <span class="slight"><i class="fa fa-play fa-rotate-270 c-white"> </i> -22%</span>
-                                <div class="sparkline7 m-t-xs">
-                                    <canvas width="273" height="75" style="display: inline-block; width: 273px; height: 75px; vertical-align: top;"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row content-lower">
+                SENTIMENT HEAT MAP <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+            </div>
         </section>
+        <aside class="twits" style="overflow-y:scroll; overflow-x:hidden; height:650px;">
+            <div class="view-header">
+                <h3 class="m-b-xs poll-left">StockTwits</h3>
+            </div>
+        </aside>
         <!-- End main content-->
     </div>
     <!-- End wrapper-->
@@ -427,143 +210,53 @@
     <script>
     $(document).ready(function() {
 
-
-        // Sparkline charts
-        var sparklineCharts = function() {
-            $(".sparkline").sparkline([20, 34, 43, 43, 35, 44, 32, 44, 52, 45], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#404652',
-                height: 47,
-                width: '100%'
-            });
-
-            $(".sparkline7").sparkline([10, 34, 13, 33, 35, 24, 32, 24, 52, 35], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#f7af3e',
-                height: 75,
-                width: '100%'
-            });
-
-            $(".sparkline1").sparkline([0, 6, 8, 3, 2, 4, 3, 4, 9, 5, 3, 4, 4, 5, 1, 6, 7, 15, 6, 4, 0], {
-                type: 'line',
-                lineColor: '#2978BB',
-                lineWidth: 3,
-                fillColor: '#2978BB',
-                height: 170,
-                width: '100%'
-            });
-
-            $(".sparkline3").sparkline([-8, 2, 4, 3, 5, 4, 3, 5, 5, 6, 3, 9, 7, 3, 5, 6, 9, 5, 6, 7, 2, 3, 9, 6, 6, 7, 8, 10, 15, 16, 17, 15], {
-
-                type: 'line',
-                lineColor: '#fff',
-                lineWidth: 3,
-                fillColor: '#393D47',
-                height: 70,
-                width: '100%'
-            });
-
-            $(".sparkline5").sparkline([0, 6, 8, 3, 2, 4, 3, 4, 9, 5, 3, 4, 4, 5], {
-                type: 'line',
-                lineColor: '#f7af3e',
-                lineWidth: 2,
-                fillColor: '#2F323B',
-                height: 20,
-                width: '100%'
-            });
-            $(".sparkline6").sparkline([0, 1, 4, 2, 2, 4, 1, 4, 3, 2, 3, 4, 4, 2, 4, 2, 1, 3], {
-                type: 'bar',
-                barColor: '#f7af3e',
-                height: 20,
-                width: '100%'
-            });
-
-            $(".sparkline8").sparkline([4, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            $(".sparkline9").sparkline([3, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            $(".sparkline10").sparkline([4, 1], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            $(".sparkline11").sparkline([1, 3], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            $(".sparkline12").sparkline([3, 5], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            $(".sparkline13").sparkline([6, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-        };
-
-        var sparkResize;
-
-        // Resize sparkline charts on window resize
-        $(window).resize(function() {
-            clearTimeout(sparkResize);
-            sparkResize = setTimeout(sparklineCharts, 100);
-        });
-
-        // Run sparkline
-        sparklineCharts();
-
-
-        // Flot charts data and options
         var data1 = [
-            [0, 16],
-            [1, 24],
-            [2, 11],
-            [3, 7],
-            [4, 10],
-            [5, 15],
-            [6, 24],
-            [7, 30]
+            [0, 3],
+            [1, 6],
+            [2, 8],
+            [3, 9],
+            [4, 12],
+            [5, 14],
+            [6, 15],
+            [7, 12],
+            [8, 14],
+            [9, 12],
+            [10, 11],
+            [11, 10],
+            [12, 14],
+            [13, 16],
+            [14, 15],
+            [15, 15],
+            [16, 16],
+            [17, 12],
+            [18, 13],
+            [19, 15],
+            [20, 16],
+            [21, 18],
+            [22, 20],
+            [23, 23],
+            [24, 22],
+            [25, 21],
+            [26, 20],
+            [27, 17],
+            [28, 15],
+            [29, 14],
+            [30, 13],
+            [31, 10]
         ];
-        var data2 = [
-            [0, 26],
-            [1, 44],
-            [2, 31],
-            [3, 27],
-            [4, 36],
-            [5, 46],
-            [6, 56],
-            [7, 66]
-        ];
-
         var chartUsersOptions = {
-            series: {
-                splines: {
-                    show: true,
-                    tension: 0.4,
-                    lineWidth: 1,
-                    fill: 1
-
-                }
-
+            lines: {
+                show: true,
+                fill: false,
+                lineWidth: 2,
+                fillColor: "#f6a821"
             },
             grid: {
-                tickColor: "#404652",
-                borderWidth: 0,
-                borderColor: '#404652',
-                color: '#404652'
-            },
-            colors: ["#f7af3e", "#DE9536"]
+                borderWidth: 0
+            }
         };
 
-        $.plot($("#flot-line-chart"), [data2, data1], chartUsersOptions);
-
+        $.plot($("#flotExample2"), [data1], chartUsersOptions);
 
     });
     </script>

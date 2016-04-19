@@ -19,18 +19,13 @@ function symbolListSector(sector) {
             });
         });
 }
+
 $(document).ready(function() {
     // Handle minimalize left menu
     $('.left-nav-toggle a').on('click', function(event) {
         event.preventDefault();
         $("body").toggleClass("nav-toggle");
     });
-
-
-    // Hide all open sub nav menu list
-    $('.nav-second').on('show.bs.collapse', function() {
-        $('.nav-second.in').collapse('hide');
-    })
 
     // Handle panel toggle
     $('.panel-toggle').on('click', function(event) {
@@ -56,12 +51,22 @@ $(document).ready(function() {
         event.preventDefault();
         var hpanel = $(event.target).closest('div.panel');
         hpanel.remove();
-    })
+    });
+
+    // Handle filter button selection
     $('.btn-filter').click(function() {
         $('.btn-filter').not(this).removeClass('active'); // remove buttonactive from the others
         $(this).toggleClass('active')
     });
-    
+    // Handle Symbol Search
+    $("#symbol-search").bind('keyup', function(event) {
+        event.preventDefault();
+        if (event.keyCode == 13) {
+            console.log('yes');
+        }
+    });
+
+    // Refresh and append the symbol list 
     var sector = "All";
     symbolListSector(sector);
 
