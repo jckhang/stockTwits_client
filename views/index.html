@@ -134,7 +134,7 @@
         <!-- Main content-->
         <section class="content">
             <div class="symbol-panel">
-                <h3 class="symbol-header">ACN (Accenture plc)</h3>
+                <h3 class="m-b-xs symbol-header">ACN (Accenture plc)</h3>
             </div>
             <div class="row content-upper">
                 <div class="tabs-container">
@@ -184,7 +184,7 @@
             </div>
             <div class="row content-lower">
                 SENTIMENT HEAT MAP <i class="fa fa-question-circle" aria-hidden="true"></i>
-
+                <div id="viz"></div>
             </div>
         </section>
         <aside class="twits" style="overflow-y:scroll; overflow-x:hidden; height:650px;">
@@ -205,6 +205,8 @@
     <script src="js/jquery.flot.min.js"></script>
     <script src="js/jquery.flot.resize.min.js"></script>
     <script src="js/jquery.flot.spline.js"></script>
+    <script src="http://www.d3plus.org/js/d3.js"></script>
+    <script src="http://www.d3plus.org/js/d3plus.js"></script>
     <!-- App scripts -->
     <script src="js/stocktwits-dashboard.js"></script>
     <script>
@@ -259,22 +261,41 @@
         $.plot($("#flotExample2"), [data1], chartUsersOptions);
 
     });
-    </script>
-    <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-4625583-2', 'webapplayers.com');
-    ga('send', 'pageview');
+    var sample_data = [{
+        "value": 100,
+        "name": "alpha",
+        "sentiment": .9
+    }, {
+        "value": 70,
+        "name": "beta",
+        "sentiment": .4
+    }, {
+        "value": 40,
+        "name": "gamma",
+        "sentiment": -.3
+    }, {
+        "value": 15,
+        "name": "delta",
+        "sentiment": -.65
+    }, {
+        "value": 5,
+        "name": "epsilon",
+        "sentiment": .7
+    }, {
+        "value": 1,
+        "name": "zeta",
+        "sentiment": .2
+    }]
+    var visualization = d3plus.viz()
+        .container("#viz")
+        .messages("Loading data...")
+        .data(sample_data)
+        .type("tree_map")
+        .id("name")
+        .size("value")
+        .color("sentiment")
+        .legend(false)
+        .draw()
     </script>
 </body>
 <div></div>

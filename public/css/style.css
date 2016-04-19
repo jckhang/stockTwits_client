@@ -951,7 +951,7 @@ body {
 }
 
 .content {
-    margin-top: 60px;
+    margin-top: 40px;
     margin-left: 300px;
     margin-right: 450px;
     position: relative;
@@ -974,7 +974,11 @@ body {
     background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
     background-position: 50%, 50%;
 }
-
+#viz{
+    padding:10px;
+    width: 480px;
+    height: 230px;
+}
 .navigation {
     margin-top: 60px;
     background-color: #24262d;
