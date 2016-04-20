@@ -77,8 +77,9 @@ $(document).ready(function() {
             [1, "desc"]
         ],
         "searching":false,
+        "paging":false,
+        
         "lengthChange":false,
-        "ordering": false,
         "info": false
     });
 });
