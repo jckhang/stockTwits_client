@@ -7,15 +7,12 @@ function symbolListSector(sector) {
             sector: sector
         })
         .done(function(data) {
+            var t = $("#table1").DataTable();
             $.each(data[Object.keys(data)], function(i, item) {
-                var items = [];
-                items.push("<td>" + item.name + "</td>");
-                items.push('<td>' + item.sector + "</td>");
-                items.push("<td>" + item.price + "</td>"); // To be replaced by real Hotness data
-                items.push("<td>" + item.ebitda + "</td>"); // To be replaced by real B?
-                $("<tr>", {
-                    html: items.join("\n")
-                }).appendTo(".symbol-table");
+                t.row.add([item.name,
+                    item.price,
+                    item.ebitda
+                ]).draw(false);
             });
         });
 }
@@ -74,5 +71,14 @@ $(document).ready(function() {
         sector = $(this).attr('value');
         $(".symbol-table").empty();
         symbolListSector(sector);
+    });
+    $('#table1').DataTable({
+        "order": [
+            [1, "desc"]
+        ],
+        "searching":false,
+        "lengthChange":false,
+        "ordering": false,
+        "info": false
     });
 });

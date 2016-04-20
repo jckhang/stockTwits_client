@@ -9,15 +9,16 @@
     <!-- Page title -->
     <title>StockTwits Dashboard</title>
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/toastr.min.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
     <!-- App styles -->
-    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="css/helper.css">
+    <link rel="stylesheet" href="css/pe-icons/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/pe-icons/helper.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/stroke-icon.css">
+    <link rel="stylesheet" href="css/stroke-icons/style.css">
     <style type="text/css">
     .jqstooltip {
         position: absolute;
@@ -111,18 +112,22 @@
         <!-- Navigation-->
         <aside class="navigation">
             <nav class="nav luna-nav" style="overflow-y:scroll; overflow-x:hidden; height:550px;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Sector</th>
-                            <th>Hotness</th>
-                            <th>B/S</th>
-                        </tr>
-                    </thead>
-                    <tbody class="symbol-table">
-                    </tbody>
-                </table>
+                <div class="class=" table-responsive "">
+                    <div id="table1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                        <table id="table1" class="dataTable table" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th>Name</th>
+                                    <!-- <th class="sorting">Sector</th> -->
+                                    <th class="sorting">Hotness</th>
+                                    <th class="sorting">B/S</th>
+                                </tr>
+                            </thead>
+                            <tbody class="symbol-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </nav>
             <nav class="nav-info">
                 <div class="m-t-xs">
@@ -139,18 +144,60 @@
             <div class="row content-upper">
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">B/S Chart</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">Symbol Info</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Symbol Info</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">B/S Chart</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div id="tab-2" class="tab-pane">
+                        <div id="tab-1" class="tab-pane active">
                             <div class="panel-body">
-                                <strong class="c-white">Lorem ipsum dolor sit amet, consectetuer adipiscing</strong>
-                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-                                <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When.</p>
+                                <div class="symbol-info row vdivide">
+                                    <div class="col-xs-6 col-md-6">
+                                        <table class="info-left">
+                                            <thead>
+                                                <th>Field</th>
+                                                <th>Value</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Prev Close</td>
+                                                    <td class="symbol-pc"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Open</td>
+                                                    <td class="symbol-op"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Volume</td>
+                                                    <td class="symbol-vo"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>P/E(ttm)</td>
+                                                    <td class="symbol-pe"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>EPS(ttm)</td>
+                                                    <td class="symbol-eps"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Beta</td>
+                                                    <td class="symbol-beta"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-xs-6 col-md-6" style="padding: 0 0 0 0">
+                                        <table>
+                                            <thead>
+                                                <th>Related Stock</th>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div id="tab-1" class="tab-pane active">
+                        <div id="tab-2" class="tab-pane">
                             <div class="panel-body">
                                 <div class="flot-chart">
                                     <div class="flot-chart-content" id="flotExample2" style="padding: 0px; position: relative;">
@@ -205,6 +252,7 @@
     <script src="js/jquery.flot.min.js"></script>
     <script src="js/jquery.flot.resize.min.js"></script>
     <script src="js/jquery.flot.spline.js"></script>
+    <script src="js/datatables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.3/d3plus.min.js"></script>
     <!-- App scripts -->

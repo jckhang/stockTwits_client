@@ -974,11 +974,13 @@ body {
     background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
     background-position: 50%, 50%;
 }
-#viz{
-    padding:10px;
+
+#viz {
+    padding: 10px;
     width: 480px;
     height: 230px;
 }
+
 .navigation {
     margin-top: 60px;
     background-color: #24262d;
@@ -1157,7 +1159,17 @@ sup {
     margin-left: -10px;
     margin-right: -10px;
 }
-
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #949ba2;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:3px;
+  bottom: 3px;
+  right: 0;
+  min-height: 70px;
+}
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -2643,6 +2655,21 @@ fieldset[disabled] .form-control {
     height: auto !important;
 }
 
+
+/*Symbol Information*/
+
+.symbol-info {
+    display: block;
+    height: 180px;
+    position: relative;
+    /*background-color: #545454;*/
+}
+.info-left thead{
+    width: 100%;
+}
+.info-left thead th{
+    width: 50%;
+}
 
 /* Charts */
 
