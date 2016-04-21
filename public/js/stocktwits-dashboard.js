@@ -70,7 +70,7 @@ $(document).ready(function() {
 
     $('.btn-filter').click(function() {
         sector = $(this).attr('value');
-        $(".symbol-table").empty();
+        $("#table1").DataTable().clear();
         symbolListSector(sector);
     });
     $('#table1').DataTable({
