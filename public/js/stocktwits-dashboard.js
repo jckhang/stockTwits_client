@@ -2,7 +2,8 @@
 var sector = "All";
 var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
 var symbolAPI = "https://stocktwitsbackend.herokuapp.com/search";
-var symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps']
+var symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
+var symbolInfoId = ["symbol-pc", "symbol-op","symbol-vo","symbol-pe","symbol-eps"];
 
 function symbolListSector(sector) {
     $.getJSON(sectorAPI, {
@@ -26,10 +27,11 @@ function symbolInfo(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            var hdata = data['data'];
-            var record = hdata[len(hdata) - 1];
-            var t = $('#table2').DataTable();
-
+            var hdata = data['data'][0]['data'];
+            var record = hdata[hdata.length - 1];
+            $.each(symbolInfoField,function(i,item){
+                document.getElementById(symbolInfoId[i]).innerHTML=record[item]
+            })
         })
 }
 
@@ -87,7 +89,6 @@ $(document).ready(function() {
         sector = $(this).attr('value');
         $("#table1").DataTable().clear();
         symbolListSector(sector);
-        console.log('haha');
     });
     // DataTable setting up
     var table1 = $('#table1').DataTable({
@@ -103,12 +104,13 @@ $(document).ready(function() {
     // DataTable click and refresh symbol-info information
     // Onload
     var symbol_name = 'AAPL';
-    symbolInfo()
-        // Onclick 
+    symbolInfo(symbol_name);
+    // Onclick 
     $('#table1 tbody').on('click', 'td', function() {
         var cell = table1.cell(this).node();
         var value = cell.childNodes[0];
         symbol_name = value.getAttribute("value");
         document.getElementById("symbol-header").innerHTML = symbol_name;
+        symbolInfo(symbol_name);
     });
 });
