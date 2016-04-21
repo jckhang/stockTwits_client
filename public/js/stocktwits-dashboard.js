@@ -10,7 +10,7 @@ function symbolListSector(sector) {
             var t = $("#table1").DataTable();
             $.each(data[Object.keys(data)], function(i, item) {
                 t.row.add([
-                    '<a>'+item.name+'</a>',
+                    '<a class="symbol_a" value=' + item.name + '>' + item.name + '</a>',
                     item.price,
                     item.ebitda
                 ]).draw(false);
@@ -72,15 +72,22 @@ $(document).ready(function() {
         sector = $(this).attr('value');
         $("#table1").DataTable().clear();
         symbolListSector(sector);
+        console.log('haha');
     });
-    $('#table1').DataTable({
+    var table1 = $('#table1').DataTable({
         "order": [
             [1, "desc"]
         ],
-        "searching":false,
-        "paging":false,
-        
-        "lengthChange":false,
+        "searching": false,
+        "paging": false,
+
+        "lengthChange": false,
         "info": false
+    });
+    $('#table1 tbody').on('click', 'td', function() {
+        var cell = table1.cell(this).node();
+        var value = cell.childNodes[0];
+        var symble_name = value.getAttribute("value");
+        document.getElementById("symbol-header").innerHTML = symble_name;
     });
 });
