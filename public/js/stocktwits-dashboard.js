@@ -10,7 +10,7 @@ function symbolListSector(sector) {
             var t = $("#table1").DataTable();
             $.each(data[Object.keys(data)], function(i, item) {
                 t.row.add([
-                    item.name,
+                    '<a>'+item.name+'</a>',
                     item.price,
                     item.ebitda
                 ]).draw(false);
