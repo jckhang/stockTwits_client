@@ -1,7 +1,8 @@
 // StockTwits Realtime Dashboard
 var sector = "All";
 var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
-var symbolAPI = "https://stocktwitsbackend.herokuapp.com/search"
+var symbolAPI = "https://stocktwitsbackend.herokuapp.com/search";
+var symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps']
 
 function symbolListSector(sector) {
     $.getJSON(sectorAPI, {
@@ -20,10 +21,18 @@ function symbolListSector(sector) {
 }
 
 function symbolInfo(symbol) {
-    $.getJSON(symbolAPI, {
 
-    })
+    $.getJSON(symbolAPI, {
+            symbol: symbol
+        })
+        .done(function(data) {
+            var hdata = data['data'];
+            var record = hdata[len(hdata) - 1];
+            var t = $('#table2').DataTable();
+
+        })
 }
+
 $(document).ready(function() {
     // Handle minimalize left menu
     $('.left-nav-toggle a').on('click', function(event) {
@@ -94,8 +103,8 @@ $(document).ready(function() {
     // DataTable click and refresh symbol-info information
     // Onload
     var symbol_name = 'AAPL';
-
-    // Onclick 
+    symbolInfo()
+        // Onclick 
     $('#table1 tbody').on('click', 'td', function() {
         var cell = table1.cell(this).node();
         var value = cell.childNodes[0];

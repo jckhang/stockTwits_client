@@ -1167,7 +1167,7 @@ sup {
   position: absolute;
   top:3px;
   bottom: 3px;
-  right: 0;
+  right: 5px;
   min-height: 70px;
 }
 .col-xs-1,
@@ -2675,7 +2675,7 @@ fieldset[disabled] .form-control {
 
 .flot-chart {
     display: block;
-    height: 200px;
+    height: 252px;
     position: relative;
     color: #545454;
 }

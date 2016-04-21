@@ -144,11 +144,11 @@
             <div class="row content-upper">
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Symbol Info</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">B/S Chart</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="false">B/S Chart</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="true">Symbol Info</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div id="tab-1" class="tab-pane active">
+                        <div id="tab-2" class="tab-pane">
                             <div class="panel-body">
                                 <div class="symbol-info row vdivide">
                                     <div class="col-xs-6 col-md-6">
@@ -179,10 +179,6 @@
                                                         <td>EPS(ttm)</td>
                                                         <td id="symbol-eps"></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Beta</td>
-                                                        <td id="symbol-beta"></td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -201,7 +197,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="tab-2" class="tab-pane">
+                        <div id="tab-1" class="tab-pane active">
                             <div class="panel-body">
                                 <div class="flot-chart">
                                     <div class="flot-chart-content" id="flotExample2" style="padding: 0px; position: relative;">
