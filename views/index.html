@@ -139,7 +139,7 @@
         <!-- Main content-->
         <section class="content">
             <div class="symbol-panel">
-                <h3 class="m-b-xs symbol-header" id="symbol-header">ACN (Accenture plc)</h3>
+                <h3 class="m-b-xs symbol-header" id="symbol-header">AAPL</h3>
             </div>
             <div class="row content-upper">
                 <div class="tabs-container">
@@ -152,47 +152,51 @@
                             <div class="panel-body">
                                 <div class="symbol-info row vdivide">
                                     <div class="col-xs-6 col-md-6">
-                                        <table class="info-left">
-                                            <thead>
-                                                <th>Field</th>
-                                                <th>Value</th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Prev Close</td>
-                                                    <td class="symbol-pc"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Open</td>
-                                                    <td class="symbol-op"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Volume</td>
-                                                    <td class="symbol-vo"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>P/E(ttm)</td>
-                                                    <td class="symbol-pe"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>EPS(ttm)</td>
-                                                    <td class="symbol-eps"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Beta</td>
-                                                    <td class="symbol-beta"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div id="table2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                            <table id="table2" class="dataTable table info-left">
+                                                <thead>
+                                                    <th>Field</th>
+                                                    <th>Value</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Prev Close</td>
+                                                        <td id="symbol-pc"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Open</td>
+                                                        <td id="symbol-op"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Volume</td>
+                                                        <td id="symbol-vo"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>P/E(ttm)</td>
+                                                        <td id="symbol-pe"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>EPS(ttm)</td>
+                                                        <td id="symbol-eps"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Beta</td>
+                                                        <td id="symbol-beta"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                     <div class="col-xs-6 col-md-6" style="padding: 0 0 0 0">
-                                        <table>
+                                    <div id="table3_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                        <table id="table3" class="dataTable table info-right">
                                             <thead>
                                                 <th>Related Stock</th>
                                             </thead>
                                             <tbody>
                                             </tbody>
                                         </table>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

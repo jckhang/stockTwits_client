@@ -1,6 +1,7 @@
 // StockTwits Realtime Dashboard
 var sector = "All";
 var sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
+var symbolAPI = "https://stocktwitsbackend.herokuapp.com/search"
 
 function symbolListSector(sector) {
     $.getJSON(sectorAPI, {
@@ -18,6 +19,11 @@ function symbolListSector(sector) {
         });
 }
 
+function symbolInfo(symbol) {
+    $.getJSON(symbolAPI, {
+
+    })
+}
 $(document).ready(function() {
     // Handle minimalize left menu
     $('.left-nav-toggle a').on('click', function(event) {
@@ -56,7 +62,7 @@ $(document).ready(function() {
         $('.btn-filter').not(this).removeClass('active'); // remove buttonactive from the others
         $(this).toggleClass('active')
     });
-    // Handle Symbol Search
+    // Handle Symbol Search !!!!!!!!!!!!!To be done
     $("#symbol-search").bind('keyup', function(event) {
         event.preventDefault();
         if (event.keyCode == 13) {
@@ -64,7 +70,7 @@ $(document).ready(function() {
         }
     });
 
-    // Refresh and append the symbol list 
+    // Btn filter click and Refresh and append the symbol list 
     var sector = "All";
     symbolListSector(sector);
 
@@ -74,6 +80,7 @@ $(document).ready(function() {
         symbolListSector(sector);
         console.log('haha');
     });
+    // DataTable setting up
     var table1 = $('#table1').DataTable({
         "order": [
             [1, "desc"]
@@ -84,10 +91,15 @@ $(document).ready(function() {
         "lengthChange": false,
         "info": false
     });
+    // DataTable click and refresh symbol-info information
+    // Onload
+    var symbol_name = 'AAPL';
+
+    // Onclick 
     $('#table1 tbody').on('click', 'td', function() {
         var cell = table1.cell(this).node();
         var value = cell.childNodes[0];
-        var symble_name = value.getAttribute("value");
-        document.getElementById("symbol-header").innerHTML = symble_name;
+        symbol_name = value.getAttribute("value");
+        document.getElementById("symbol-header").innerHTML = symbol_name;
     });
 });
