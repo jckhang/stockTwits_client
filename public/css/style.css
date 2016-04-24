@@ -951,7 +951,7 @@ body {
 }
 
 .content {
-    margin-top: 40px;
+    margin-top: 50px;
     margin-left: 300px;
     margin-right: 450px;
     position: relative;
@@ -1005,9 +1005,11 @@ body {
     background-color: #24262d;
     width: 300px;
 }
-.symbol_a:hover{
+
+.symbol_a:hover {
     cursor: pointer;
 }
+
 .twits {
     margin-top: 60px;
     background-color: #393b45;
@@ -1018,6 +1020,37 @@ body {
     top: 0;
     transition: left 0.3s ease-out;
     -webkit-transition: left 0.3s ease-out;
+}
+
+.stream-list {
+    clear: both;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.stream-list>li {
+    position: relative;
+    padding: 0px 3px;
+    line-height: 1.3em;
+    font-size: 14px;
+    max-width: 380px;
+    box-shadow: none;
+}
+
+.stream-list>li .stream-content {
+    padding: 9px 3px;
+}
+
+.stream-list li:hover {
+    
+    box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.2);
+}
+
+.message-date {
+    float: right;
+    font-size: 12px;
 }
 
 body.nav-toggle .content {
@@ -1161,17 +1194,19 @@ sup {
     margin-left: -10px;
     margin-right: -10px;
 }
+
 .row.vdivide [class*='col-']:not(:last-child):after {
-  background: #949ba2;
-  width: 1px;
-  content: "";
-  display:block;
-  position: absolute;
-  top:3px;
-  bottom: 3px;
-  right: 5px;
-  min-height: 70px;
+    background: #949ba2;
+    width: 1px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    right: 5px;
+    min-height: 70px;
 }
+
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -1567,9 +1602,9 @@ sup {
 }
 
 .view-header {
-    margin: 20px 0;
+    margin: 35px 0px 0px 0px;
     min-height: 50px;
-    padding: 0 15px;
+    padding: 0px 0px 0px 50px;
 }
 
 .view-header .header-icon {
@@ -2656,7 +2691,10 @@ fieldset[disabled] .form-control {
     width: auto !important;
     height: auto !important;
 }
+
+
 /*Symbol Search*/
+
 .ui-autocomplete {
     position: absolute;
     top: 100%;
@@ -2664,12 +2702,12 @@ fieldset[disabled] .form-control {
     z-index: 1000;
     float: left;
     display: none;
-    min-width: 160px;   
+    min-width: 160px;
     padding: 20px 0px 0px 10px;
     margin: 0 0 10px 25px;
     list-style: none;
     background-color: #f6a821;
-    color:white;
+    color: white;
     border-color: #ccc;
     border-color: rgba(0, 0, 0, 0.2);
     border-style: solid;
@@ -2686,6 +2724,8 @@ fieldset[disabled] .form-control {
     *border-right-width: 2px;
     *border-bottom-width: 2px;
 }
+
+
 /*Symbol Information*/
 
 .symbol-info {
@@ -2694,12 +2734,15 @@ fieldset[disabled] .form-control {
     position: relative;
     /*background-color: #545454;*/
 }
-.info-left thead{
+
+.info-left thead {
     width: 100%;
 }
-.info-left thead th{
+
+.info-left thead th {
     width: 50%;
 }
+
 
 /* Charts */
 
