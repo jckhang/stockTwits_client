@@ -1,9 +1,10 @@
 // StockTwits Realtime Dashboard
 let sector = "All";
-let sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
-let symbolAPI = "https://stocktwitsbackend.herokuapp.com/search";
-let symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
-let symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
+const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
+const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
+const sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
+const symbolAPI = "https://stocktwitsbackend.herokuapp.com/search";
+const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
 // Get API /sectors?sector= and append symbols within that sector to the left 
 function symbolListSector(sector) {
@@ -23,7 +24,6 @@ function symbolListSector(sector) {
 }
 
 function symbolInfo(symbol) {
-
     $.getJSON(symbolAPI, {
             symbol: symbol
         })
@@ -36,6 +36,16 @@ function symbolInfo(symbol) {
         })
 }
 
+function twitsMessage(symbol) {
+    $.getJSON(twitsAPI, {
+            symbol: symbol
+        })
+        .done(function(data) {
+            let mdata = data['data'];
+            $("#messageTemplate").tmpl(mdata)
+                .appendTo("#stream-list");
+        })
+}
 $(document).ready(function() {
     // Handle minimalize left menu
     $('.left-nav-toggle a').on('click', function(event) {
@@ -131,5 +141,12 @@ $(document).ready(function() {
         symbol_name = value.getAttribute("value");
         document.getElementById("symbol-header").innerHTML = symbol_name;
         symbolInfo(symbol_name);
+        $("#stream-list").empty();
+        console.log(symbol_name);
+        twitsMessage(symbol_name);
     });
+
+    // Append Twits
+    let symbol = "All";
+    twitsMessage(symbol);
 });

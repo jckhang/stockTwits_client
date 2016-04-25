@@ -987,7 +987,7 @@ body {
     width: 300px;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 30px;
     top: 0;
     transition: left 0.3s ease-out;
     -webkit-transition: left 0.3s ease-out;
@@ -999,8 +999,8 @@ body {
     content: '';
     position: fixed;
     top: 0;
-    bottom: 0;
-    z-index: -1;
+    bottom: 20px;
+    [z-index: -1;]
     left: 0;
     background-color: #24262d;
     width: 300px;
@@ -1016,7 +1016,7 @@ body {
     width: 450px;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 10px;
     top: 0;
     transition: left 0.3s ease-out;
     -webkit-transition: left 0.3s ease-out;
