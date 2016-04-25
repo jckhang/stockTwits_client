@@ -1,5 +1,6 @@
 // StockTwits Realtime Dashboard
-let sector = "All";
+let sector_name = "All";
+let symbol_name = "AAPL";
 const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
 const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
 const sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
@@ -37,6 +38,9 @@ function symbolInfo(symbol) {
 }
 
 function twitsMessage(symbol) {
+    if (symbol === "BRKB") {
+        symbol = "BRK.B"
+    }
     $.getJSON(twitsAPI, {
             symbol: symbol
         })
@@ -114,13 +118,13 @@ $(document).ready(function() {
         }
     });
     // Btn filter click and Refresh and append the symbol list 
-    let sector = "All";
-    symbolListSector(sector);
+    let sector_name = "All";
+    symbolListSector(sector_name);
 
     $('.btn-filter').click(function() {
-        sector = $(this).attr('value');
+        sector_name = $(this).attr('value');
         $("#overview").DataTable().clear();
-        symbolListSector(sector);
+        symbolListSector(sector_name);
     });
     // overview setting up
     let overview = $('#overview').DataTable({
@@ -148,6 +152,5 @@ $(document).ready(function() {
     });
 
     // Append Twits
-    let symbol = "All";
-    twitsMessage(symbol);
+    twitsMessage(symbol_name);
 });
