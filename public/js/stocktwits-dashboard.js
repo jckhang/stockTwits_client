@@ -95,7 +95,7 @@ $(document).ready(function() {
             symbolInfo(val);
             document.getElementById("symbol-search").value = "";
             $("#stream-list").empty();
-            twitsMessage(symbol_name);
+            twitsMessage(val);
         }
     });
     let availableTags = ["AAPL", "ABBV", "ABT", "ACN", "AIG", "ALL", "AMGN", "AMZN", "APA", "AXP", "BA", "BAC", "BAX", "BIIB", "BK", "BLK", "BMY", "BRKB", "C", "CAT", "CL", "CMCSA",
