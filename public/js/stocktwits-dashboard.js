@@ -93,7 +93,9 @@ $(document).ready(function() {
             let val = $(this).val().toUpperCase();
             document.getElementById("symbol-header").innerHTML = val;
             symbolInfo(val);
-            document.getElementById("symbol-search").value = ""
+            document.getElementById("symbol-search").value = "";
+            $("#stream-list").empty();
+            twitsMessage(symbol_name);
         }
     });
     let availableTags = ["AAPL", "ABBV", "ABT", "ACN", "AIG", "ALL", "AMGN", "AMZN", "APA", "AXP", "BA", "BAC", "BAX", "BIIB", "BK", "BLK", "BMY", "BRKB", "C", "CAT", "CL", "CMCSA",
@@ -142,7 +144,6 @@ $(document).ready(function() {
         document.getElementById("symbol-header").innerHTML = symbol_name;
         symbolInfo(symbol_name);
         $("#stream-list").empty();
-        console.log(symbol_name);
         twitsMessage(symbol_name);
     });
 
