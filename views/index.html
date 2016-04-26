@@ -130,9 +130,7 @@
                 </div>
             </nav>
             <nav class="nav-info">
-                <div class="m-t-xs">
-                    Stock Insights Visualizing Real-time Stock Market Information.
-                </div>
+                Stock Insights Visualizing Real-time Stock Market Information.
             </nav>
         </aside>
         <!-- End navigation-->
@@ -236,7 +234,7 @@
         </section>
         <aside class="twits">
             <div class="view-header">
-                <h3 class="m-b-xs poll-left">StockTwits</h3>
+                <h3>StockTwits<label class="mainbtn btn btn-default" onclick="document.location.href='/'">Back to Main</label></h3>
             </div>
             <div class="twits-content" style="overflow-y:scroll; overflow-x:hidden; height:500px;">
                 <ol class="stream-list" id="stream-list">
@@ -264,20 +262,20 @@
     <!-- App scripts -->
     <script src="js/stocktwits-dashboard.js"></script>
     <script id="messageTemplate" type="text/x-jquery-tmpl">
-                        <li class="messageli">
-                            <div class="stream-content">
-                                <div class="message-header">
-                                    <div class="message-date">
-                                        ${time}
-                                    </div>
-                                </div>
-                                <a class="username">${name}</a>
-                                <div class="message-content">
-                                    ${body} 
-                                </div>
-                            </div>
-                        </li>
-                    </script>
+        <li class="messageli">
+            <div class="stream-content">
+                <div class="message-header">
+                    <div class="message-date">
+                        ${time}
+                    </div>
+                </div>
+                <a class="username">${name}</a>
+                <div class="message-content">
+                    ${body}
+                </div>
+            </div>
+        </li>
+    </script>
     <script>
     $(document).ready(function() {
 
