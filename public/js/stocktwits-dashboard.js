@@ -3,13 +3,13 @@ let sector_name = "All";
 let symbol_name = "AAPL";
 const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
 const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
-const sectorAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
-const symbolAPI = "https://stocktwitsbackend.herokuapp.com/search";
+const sectorsAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
+const searchAPI = "https://stocktwitsbackend.herokuapp.com/search";
 const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
-// Get API /sectors?sector= and append symbols within that sector to the left 
+// Get API /sectors?sector= and append symbols within that sector to the left
 function symbolListSector(sector) {
-    $.getJSON(sectorAPI, {
+    $.getJSON(sectorsAPI, {
             sector: sector
         })
         .done(function(data) {
@@ -25,11 +25,11 @@ function symbolListSector(sector) {
 }
 
 function symbolInfo(symbol) {
-    $.getJSON(symbolAPI, {
+    $.getJSON(searchAPI, {
             symbol: symbol
         })
         .done(function(data) {
-            let hdata = data['data'][0]['data'];
+            let hdata = data['data'].slice(-1)[0];
             let record = hdata[hdata.length - 1];
             $.each(symbolInfoField, function(i, item) {
                 document.getElementById(symbolInfoId[i]).innerHTML = record[item]
@@ -90,7 +90,7 @@ $(document).ready(function() {
         $(this).toggleClass('active')
     });
 
-    // Handle Symbol Search 
+    // Handle Symbol Search
     $("#symbol-search").keypress(function(event) {
         let keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
@@ -118,7 +118,7 @@ $(document).ready(function() {
             }
         }
     });
-    // Btn filter click and Refresh and append the symbol list 
+    // Btn filter click and Refresh and append the symbol list
     let sector_name = "All";
     symbolListSector(sector_name);
 
