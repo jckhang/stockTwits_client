@@ -50,6 +50,7 @@ function twitsMessage(symbol) {
                 .appendTo("#stream-list");
         })
 }
+
 $(document).ready(function() {
     // Handle minimalize left menu
     $('.left-nav-toggle a').on('click', function(event) {
