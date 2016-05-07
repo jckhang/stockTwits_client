@@ -17,7 +17,7 @@ function symbolListSector(sector) {
             $.each(data[Object.keys(data)], function(i, item) {
                 t.row.add([
                     '<a class="symbol_a" value=' + item.name + '>' + item.name + '</a>',
-                    item["hottness"],
+                    item["hotness"],
                     item['B/S']
                 ]).draw(false);
             });
