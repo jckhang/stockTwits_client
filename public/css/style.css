@@ -1,3 +1,25 @@
+.sentiment {
+    color: #898989;
+    border-radius: 3px;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.2),0 1px 0 #fff;
+    display: inline-block;
+    font-size: 0.85em;
+}
+.sentiment.bull {
+    background: #e3f0e3;
+    color: #60a85f;
+    padding: 0 3px;
+}
+.sentiment.bear {
+    background: #faebeb;
+    color: #c26e6e;
+    padding: 0 3px;
+}
+.sentiment.neutral {
+    background: #c2a5cf;
+    color: #762a83;
+    padding: 0 3px;
+}
 .btn:active,
 .btn.active {
     box-shadow: none;
@@ -1604,7 +1626,7 @@ sup {
 
 .view-header {
     margin: 35px 0px 0px 0px;
-    min-height: 50px;
+    min-height: 80px;
     padding: 0px 0px 0px 50px;
 }
 

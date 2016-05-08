@@ -234,7 +234,14 @@
         </section>
         <aside class="twits">
             <div class="view-header">
-                <h3>StockTwits<label class="mainbtn btn btn-default" onclick="document.location.href='/'">Back to Main</label></h3>
+                <div class="row">
+                    <h3>StockTwits<label class="mainbtn btn btn-default" onclick="document.location.href='/'">Back to Main</label></h3>
+                </div>
+                <div class="row">
+                  <span class="sentiment bear"> Bearish</span>
+                  <span class="sentiment bull"> Bullish</span>
+                  <span class="sentiment neutral"> Neutral</span>
+                </div>
             </div>
             <div class="twits-content" style="overflow-y:scroll; overflow-x:hidden; height:530px;">
                 <ol class="stream-list" id="stream-list">
@@ -265,7 +272,11 @@
         <li class="messageli">
             <div class="stream-content">
                 <div class="message-header">
-                    <a class="username">${name}</a>
+                    <a class="username">${name}</a> {{if bs==-1}}
+                    <span class="sentiment bear"> Bearish</span> {{/if}} {{if bs==1}}
+                    <span class="sentiment bull"> Bullish</span> {{/if}} {{if bs==0}}
+                    <span class="sentiment neutral"> Neutral</span> {{/if}}
+
                     <div class="message-date">
                         ${time}
                     </div>

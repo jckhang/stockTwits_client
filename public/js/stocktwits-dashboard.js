@@ -18,7 +18,7 @@ function symbolListSector(sector) {
                 t.row.add([
                     '<a class="symbol_a" value=' + item.name + '>' + item.name + '</a>',
                     item["hotness"],
-                    item['B/S']
+                    item['BS']
                 ]).draw(false);
             });
         });
@@ -45,8 +45,8 @@ function twitsMessage(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            let messageData = data['data'];
-            $("#messageTemplate").tmpl(messageData)
+            let mdata = data['data'];
+            $("#messageTemplate").tmpl(mdata)
                 .appendTo("#stream-list");
         })
 }
