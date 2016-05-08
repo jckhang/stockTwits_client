@@ -1051,7 +1051,9 @@ body {
     float: right;
     font-size: 12px;
 }
-
+.message-header{
+  border-bottom: ridge 0.5px #949ba2;
+}
 body.nav-toggle .content {
     margin-left: 0;
 }

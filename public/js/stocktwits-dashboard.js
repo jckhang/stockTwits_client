@@ -45,8 +45,8 @@ function twitsMessage(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            let mdata = data['data'];
-            $("#messageTemplate").tmpl(mdata)
+            let messageData = data['data'];
+            $("#messageTemplate").tmpl(messageData)
                 .appendTo("#stream-list");
         })
 }
