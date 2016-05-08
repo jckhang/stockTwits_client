@@ -1022,8 +1022,6 @@ body {
     position: fixed;
     top: 0;
     bottom: 0px;
-    [z-index: -1;
-    ] left: 0;
     background-color: #24262d;
     width: 300px;
 }
