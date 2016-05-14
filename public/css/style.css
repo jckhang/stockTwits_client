@@ -974,7 +974,7 @@ body {
 
 .content {
     margin-top: 50px;
-    margin-left: 300px;
+    margin-left: 320px;
     margin-right: 450px;
     position: relative;
     padding: 30px;
@@ -989,7 +989,7 @@ body {
     bottom: 0;
     z-index: -2;
     left: 0;
-    right: 300px;
+    right: 320px;
     background-image: -webkit-radial-gradient(top, circle cover, #393b45 0%, #2d3038 70%);
     background-image: -moz-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
     background-image: -o-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
@@ -1006,7 +1006,7 @@ body {
 .navigation {
     margin-top: 60px;
     background-color: #24262d;
-    width: 300px;
+    width: 320px;
     position: absolute;
     left: 0;
     bottom: 0px;
@@ -1023,7 +1023,7 @@ body {
     top: 0;
     bottom: 0px;
     background-color: #24262d;
-    width: 300px;
+    width: 320px;
 }
 
 .symbol_a:hover {
@@ -1079,11 +1079,11 @@ body.nav-toggle .content {
 }
 
 body.nav-toggle .navigation {
-    left: -300px;
+    left: -320px;
 }
 
 body.nav-toggle .navigation:before {
-    left: -300px;
+    left: -320px;
 }
 
 @media (max-width: 767px) {
@@ -1092,11 +1092,11 @@ body.nav-toggle .navigation:before {
         padding: 30px 0 10px 0;
     }
     .navigation {
-        left: -300px;
+        left: -320px;
         z-index: 2;
     }
     .navigation:before {
-        left: -300px;
+        left: -320px;
     }
     body.nav-toggle .content {
         margin-left: 0;
@@ -1204,7 +1204,7 @@ sup {
 
 .slight {
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 320;
 }
 
 .show-grid {
@@ -1327,7 +1327,7 @@ sup {
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:focus {
-    width: 300px;
+    width: 320px;
     background-color: #f6a821;
     height: 60px;
     padding: 20px 25px;
@@ -1463,7 +1463,7 @@ sup {
 
 .luna-nav.nav table,
 .luna-nav.nav .nav-category {
-    padding: 8px 15px 8px 25px;
+    padding: 8px 15px 0px 25px;
     margin: 0 0;
 }
 
@@ -2285,7 +2285,7 @@ h6 .small,
 
 .tabs-left > .nav-tabs > li > a,
 .tabs-right > .nav-tabs > li > a {
-    margin-right: 300px;
+    margin-right: 320px;
     margin-bottom: 3px;
 }
 
@@ -2386,7 +2386,7 @@ h6 .small,
 
 th {
     color: #ffffff;
-    padding: 8px;
+    padding: 5px;
 }
 
 td {
