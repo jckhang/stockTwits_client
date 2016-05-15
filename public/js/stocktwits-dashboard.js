@@ -31,7 +31,7 @@ function symbolInfo(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            let record = data['data'].slice(-1)[0];            
+            let record = data['data'].slice(-1)[0];
             $.each(symbolInfoField, function(i, item) {
                 document.getElementById(symbolInfoId[i]).innerHTML = record[item]
             })
@@ -57,6 +57,15 @@ function drawChart(symbol) {
                 },
                 grid: {
                     borderWidth: 0
+                },
+                xaxis: {
+                    ticks: [
+                        [0, '9:00'],
+                        [5, '11:00'],
+                        [10, '13:00'],
+                        [15, '15:00'],
+                        [20, '17:00']
+                    ]
                 }
             };
 
