@@ -5,6 +5,7 @@ const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
 const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
 const sectorsAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
 const searchAPI = "https://stocktwitsbackend.herokuapp.com/search";
+const priceAPI = "https://stocktwitsbackend.herokuapp.com/price";
 const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
 // Get API /sectors?sector= and append symbols within that sector to the left
@@ -30,11 +31,36 @@ function symbolInfo(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            let hdata = data['data'].slice(-1)[0];
-            let record = hdata[hdata.length - 1];
+            let record = data['data'].slice(-1)[0];            
             $.each(symbolInfoField, function(i, item) {
                 document.getElementById(symbolInfoId[i]).innerHTML = record[item]
             })
+        })
+}
+
+function drawChart(symbol) {
+    $.getJSON(priceAPI, {
+            symbol: symbol
+        })
+        .done(function(data) {
+            let priceData = data['data'];
+            let data1 = [];
+            $.each(priceData, function(i, price) {
+                data1.push([i, price]);
+            });
+            var chartUsersOptions = {
+                lines: {
+                    show: true,
+                    fill: false,
+                    lineWidth: 2,
+                    fillColor: "#f6a821"
+                },
+                grid: {
+                    borderWidth: 0
+                }
+            };
+
+            $.plot($("#flotExample2"), [data1], chartUsersOptions);
         })
 }
 
@@ -140,8 +166,13 @@ $(document).ready(function() {
     });
     // "overview": click on each symbol and refresh symbol-info information
     //// Onload
+    // Append symbol info
     let symbol_name = 'AAPL';
     symbolInfo(symbol_name);
+    // Draw symbol price
+    drawChart(symbol_name);
+    // Append Twits
+    twitsMessage(symbol_name);
     //// Onclick symbol
     $('#overview tbody').on('click', 'td', function() {
         let cell = overview.cell(this).node();
@@ -149,10 +180,8 @@ $(document).ready(function() {
         symbol_name = value.getAttribute("value");
         document.getElementById("symbol-header").innerHTML = symbol_name;
         symbolInfo(symbol_name);
+        drawChart(symbol_name);
         $("#stream-list").empty();
         twitsMessage(symbol_name);
     });
-
-    // Append Twits
-    twitsMessage(symbol_name);
 });
