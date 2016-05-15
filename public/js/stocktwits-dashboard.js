@@ -5,7 +5,7 @@ const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
 const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
 const sectorsAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
 const searchAPI = "https://stocktwitsbackend.herokuapp.com/search";
-const priceAPI = "https://stocktwitsbackend.herokuapp.com/price";
+const sparklineAPI = "https://stocktwitsbackend.herokuapp.com/sparkline";
 const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
 // Get API /sectors?sector= and append symbols within that sector to the left
@@ -39,7 +39,7 @@ function symbolInfo(symbol) {
 }
 
 function drawChart(symbol) {
-    $.getJSON(priceAPI, {
+    $.getJSON(sparklineAPI, {
             symbol: symbol
         })
         .done(function(data) {
