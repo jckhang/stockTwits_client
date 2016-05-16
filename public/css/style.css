@@ -2769,9 +2769,10 @@ fieldset[disabled] .form-control {
 .legendLabel{
   color: #ffffff;
 }
+
 .flot-chart {
     display: block;
-    height: 208px;
+    height: 185px;
     position: relative;
     color: #545454;
 }
