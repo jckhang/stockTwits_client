@@ -19,8 +19,7 @@ function symbolListSector(sector) {
                 t.row.add([
                     '<a class="symbol_a" value=' + item.name + '>' + item.name + '</a>',
                     item["hotness"],
-                    item['BS'],
-                    ""
+                    item['BS']
                 ]).draw(false);
             });
         });
