@@ -221,7 +221,7 @@ $(document).ready(function() {
         }
     });
     // Btn filter click and Refresh and append the symbol list
-    let sector_name = "All";
+    let sector_name = "all";
     symbolListSector(sector_name);
 
     $('.btn-filter').click(function() {
@@ -247,7 +247,7 @@ $(document).ready(function() {
     // Draw symbol price
     drawChart(symbol_name);
     // Append Twits
-    twitsMessage(symbol_name);
+    twitsMessage('all');
     //// Onclick symbol
     $('#overview tbody').on('click', 'td', function() {
         let cell = overview.cell(this).node();
