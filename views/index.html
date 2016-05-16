@@ -195,30 +195,13 @@
                         </div>
                         <div id="tab-1" class="tab-pane active">
                             <div class="panel-body">
+                                <div id="legendHolder">
+                                </div>
                                 <div class="flot-chart">
-                                    <div class="flot-chart-content" id="flotExample2" style="padding: 0px; position: relative;">
-                                        <canvas class="flot-base" width="902" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 451px; height: 300px;"></canvas>
-                                        <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
-                                            <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 15px; text-align: center;">0</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 83px; text-align: center;">5</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 149px; text-align: center;">10</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 217px; text-align: center;">15</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 286px; text-align: center;">20</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 354px; text-align: center;">25</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 284px; left: 423px; text-align: center;">30</div>
-                                            </div>
-                                            <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 271px; left: 6px; text-align: right;">0</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 217px; left: 6px; text-align: right;">5</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 163px; left: 0px; text-align: right;">10</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 108px; left: 0px; text-align: right;">15</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 54px; left: 0px; text-align: right;">20</div>
-                                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 0px; text-align: right;">25</div>
-                                            </div>
-                                        </div>
-                                        <canvas class="flot-overlay" width="902" height="600" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 451px; height: 300px;"></canvas>
+                                    <div class="flot-chart-content" id="flot" style="padding: 0px; position: relative;">
+
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -259,6 +242,7 @@
     <script src="js/jquery.flot.min.js"></script>
     <script src="js/jquery.flot.resize.min.js"></script>
     <script src="js/jquery.flot.spline.js"></script>
+    <script src="js/jquery.flot.tooltip.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     <script src="js/datatables.min.js"></script>
@@ -286,57 +270,6 @@
         </li>
     </script>
     <script>
-        // $(document).ready(function() {
-        //
-        //     var data1 = [
-        //         [0, 30],
-        //         [1, 60],
-        //         [2, 80],
-        //         [3, 90],
-        //         [4, 120],
-        //         [5, 140],
-        //         [6, 150],
-        //         [7, 120],
-        //         [8, 140],
-        //         [9, 120],
-        //         [10, 110],
-        //         [11, 100],
-        //         [12, 140],
-        //         [13, 160],
-        //         [14, 150],
-        //         [15, 150],
-        //         [16, 160],
-        //         [17, 120],
-        //         [18, 130],
-        //         [19, 150],
-        //         [20, 160],
-        //         [21, 180],
-        //         [22, 200],
-        //         [23, 230],
-        //         [24, 220],
-        //         [25, 210],
-        //         [26, 200],
-        //         [27, 170],
-        //         [28, 150],
-        //         [29, 140],
-        //         [30, 130],
-        //         [31, 100]
-        //     ];
-        //     var chartUsersOptions = {
-        //         lines: {
-        //             show: true,
-        //             fill: false,
-        //             lineWidth: 2,
-        //             fillColor: "#f6a821"
-        //         },
-        //         grid: {
-        //             borderWidth: 0
-        //         }
-        //     };
-        //
-        //     $.plot($("#flotExample2"), [data1], chartUsersOptions);
-        //
-        // });
         var sample_data = [{
             "value": 100,
             "name": "alpha",

@@ -2766,20 +2766,14 @@ fieldset[disabled] .form-control {
 
 
 /* Charts */
-
+.legendLabel{
+  color: #ffffff;
+}
 .flot-chart {
     display: block;
-    height: 218px;
+    height: 208px;
     position: relative;
     color: #545454;
-}
-
-.flot-chart-analytics {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: block;
-    height: 150px;
-    position: relative;
 }
 
 .flot-chart-content {

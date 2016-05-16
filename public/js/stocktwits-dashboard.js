@@ -43,35 +43,102 @@ function drawChart(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            let priceData = data['data'];
+            function showTooltip(x, y, contents) {
+                $('<div id="tooltip">' + contents + '</div>').css({
+                    position: 'absolute',
+                    display: 'none',
+                    top: y - 40,
+                    left: x - 10,
+                    border: '1px solid #fdd',
+                    padding: '2px',
+                    'background-color': '#eee',
+                    opacity: 0.80
+                }).appendTo("body").fadeIn(200);
+            }
+
+
+
+            var previousPoint = null;
+            $("#flot").on("plothover", function(event, pos, item) {
+                $("#x").text(pos.x.toFixed(2));
+                $("#y").text(pos.y.toFixed(2));
+                if (item) {
+
+                    if (previousPoint != item.dataIndex) {
+
+                        previousPoint = item.dataIndex;
+
+                        $("#tooltip").remove();
+                        var x = item.datapoint[0] - 1,
+                            y = item.datapoint[1];
+                        console.log(item.datapoint);
+                        console.log(y);
+                        showTooltip(item.pageX, item.pageY,
+                            y + " | " + timeData[x]);
+
+                    }
+                } else {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+
+            });
+            let priceData = data['price'];
+            let bsData = data['BS'];
+            let timeData = data['time'];
+            let start = data['start'];
+            let end = data['end'];
             let data1 = [];
+            let data2 = [];
             $.each(priceData, function(i, price) {
                 data1.push([i, price]);
             });
-            var chartUsersOptions = {
+            $.each(bsData, function(i, bs) {
+                data2.push([i, bs]);
+            });
+            console.log(timeData[0]);
+            data = [{
+                data: data1,
+                label: 'Price',
                 lines: {
-                    show: true,
-                    fill: false,
-                    lineWidth: 2,
-                    fillColor: "#f6a821"
+                    show: true
                 },
+                yaxis: 1
+            }, {
+                data: data2,
+                label: 'B/S',
+                lines: {
+                    show: true
+                },
+                yaxis: 2
+            }];
+            var options = {
                 grid: {
-                    borderWidth: 0
+                    hoverable: true
                 },
                 xaxis: {
                     ticks: [
-                        [0, '9:00'],
-                        [5, '11:00'],
-                        [10, '13:00'],
-                        [15, '15:00'],
-                        [20, '17:00']
+                        [1, start],
+                        [priceData.length - 2, end]
                     ]
+                },
+                yaxes: [{
+                    position: "left"
+                }, {
+                    position: "right"
+                }],
+                legend: {
+                    noColumns: 4,
+                    placement: 'outsideGrid',
+                    container: $('#legendHolder')
                 }
             };
 
-            $.plot($("#flotExample2"), [data1], chartUsersOptions);
+            $.plot($("#flot"), data, options);
         })
 }
+
+
 
 function twitsMessage(symbol) {
     if (symbol === "BRKB") {
