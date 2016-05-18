@@ -964,14 +964,16 @@ sup {
 }
 .right-nav-toggle {
     float: left;
-    padding: 14px 10px 6px 25px;
+    padding: 14px 1px 6px 25px;
 }
 .navbar-form {
     margin-top: 13px;
     padding: 0;
 }
 .navbar-form input.form-control {
-    border: none;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
     box-shadow: none;
     color: #949ba2;
 }

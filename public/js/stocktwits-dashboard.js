@@ -54,24 +54,16 @@ function drawChart(symbol) {
                     opacity: 0.80
                 }).appendTo("body").fadeIn(200);
             }
-
-
-
             var previousPoint = null;
             $("#flot").on("plothover", function(event, pos, item) {
                 $("#x").text(pos.x.toFixed(2));
                 $("#y").text(pos.y.toFixed(2));
                 if (item) {
-
                     if (previousPoint != item.dataIndex) {
-
                         previousPoint = item.dataIndex;
-
                         $("#tooltip").remove();
                         var x = item.datapoint[0] - 1,
                             y = item.datapoint[1];
-                        console.log(item.datapoint);
-                        console.log(y);
                         showTooltip(item.pageX, item.pageY,
                             y + " | " + timeData[x]);
 
@@ -95,7 +87,6 @@ function drawChart(symbol) {
             $.each(bsData, function(i, bs) {
                 data2.push([i, bs]);
             });
-            console.log(timeData[0]);
             data = [{
                 data: data1,
                 label: 'Price',
@@ -205,21 +196,63 @@ $(document).ready(function() {
             twitsMessage(val);
         }
     });
-    let availableTags = ["AAPL", "ABBV", "ABT", "ACN", "AIG", "ALL", "AMGN", "AMZN", "APA", "AXP", "BA", "BAC", "BAX", "BIIB", "BK", "BLK", "BMY", "BRKB", "C", "CAT", "CL", "CMCSA",
-        "COF", "COP", "COST", "CSCO", "CVS", "CVX", "DD", "DIS", "DOW", "DVN", "EBAY", "EMC", "EMR", "EXC", "F", "FB", "FCX", "FDX", "FOXA", "GD", "GE", "GILD",
-        "GM", "GOOG", "GS", "HAL", "HD", "HON", "IBM", "INTC", "JNJ", "JPM", "KO", "LLY", "LMT", "LOW", "MA", "MCD", "MDLZ", "MDT", "MET", "MMM", "MO", "MON", "MRK", "MS", "MSFT", "NEE", "NKE", "NOV", "NSC", "ORCL", "OXY", "PEP", "PFE", "PG", "PM", "QCOM", "RTN", "SBUX", "SLB", "SO", "SPG", "T", "TGT", "TWX", "TXN", "UNH", "UNP", "UPS", "USB", "UTX", "V", "VZ", "WBA", "WFC", "WMT", "XOM"
-    ]
-    $("#symbol-search").autocomplete({
-        source: availableTags,
-        response: function(event, ui) {
-            // ui.content is the array that's about to be sent to the response callback.
-            if (ui.content.length === 0) {
-                $("#symbol-search").text("No results found");
-            } else {
-                $("#symbol-search").empty();
+
+
+    let availableTags = symbols;
+    // $("#symbol-search").autocomplete({
+    //     source: function(req, add){
+    //       add($.map(availableTags, function(element){
+    //         return {
+    //           label: element.symbol
+    //         };
+    //       }))
+    //     },
+    //     response: function(event, ui) {
+    //         // ui.content is the array that's about to be sent to the response callback.
+    //         if (ui.content.length === 0) {
+    //             $("#symbol-search").text("No results found");
+    //         } else {
+    //             $("#symbol-search").empty();
+    //         }
+    //     },
+    //     select: function(event, ui) {
+    //         let val = ui.item.label.toUpperCase();
+    //         document.getElementById("symbol-header").innerHTML = val;
+    //         symbolInfo(val);
+    //         document.getElementById("symbol-search").value = "";
+    //         $("#stream-list").empty();
+    //         twitsMessage(val);
+    //     }
+    // });
+    var options = {
+        data: availableTags,
+        getValue: "symbol",
+        list: {
+            match: {
+                enabled: true
+            },
+            maxNumberOfElements: 6,
+
+            showAnimation: {
+                type: "slide",
+                time: 300
+            },
+            hideAnimation: {
+                type: "slide",
+                time: 300
+            },
+            onSelectItemEvent: function() {
+                let val = $("#symbol-search").getSelectedItemData().symbol;
+                document.getElementById("symbol-header").innerHTML = val;
+                symbolInfo(val);
+                document.getElementById("symbol-search").value = "";
+                $("#stream-list").empty();
+                twitsMessage(val);
             }
-        }
-    });
+        },
+        theme: "plate-dark"
+    };
+    $("#symbol-search").easyAutocomplete(options);
     // Btn filter click and Refresh and append the symbol list
     let sector_name = "all";
     symbolListSector(sector_name);
