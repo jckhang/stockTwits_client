@@ -199,31 +199,6 @@ $(document).ready(function() {
 
 
     let availableTags = symbols;
-    // $("#symbol-search").autocomplete({
-    //     source: function(req, add){
-    //       add($.map(availableTags, function(element){
-    //         return {
-    //           label: element.symbol
-    //         };
-    //       }))
-    //     },
-    //     response: function(event, ui) {
-    //         // ui.content is the array that's about to be sent to the response callback.
-    //         if (ui.content.length === 0) {
-    //             $("#symbol-search").text("No results found");
-    //         } else {
-    //             $("#symbol-search").empty();
-    //         }
-    //     },
-    //     select: function(event, ui) {
-    //         let val = ui.item.label.toUpperCase();
-    //         document.getElementById("symbol-header").innerHTML = val;
-    //         symbolInfo(val);
-    //         document.getElementById("symbol-search").value = "";
-    //         $("#stream-list").empty();
-    //         twitsMessage(val);
-    //     }
-    // });
     var options = {
         data: availableTags,
         getValue: "symbol",
