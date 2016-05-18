@@ -10,6 +10,20 @@ const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
 // Get API /sectors?sector= and append symbols within that sector to the left
 function symbolListSector(sector) {
+    function drawHotness() {
+        var elem = document.getElementById("hotBar");
+        var width = 1;
+        var id = setInterval(frame, 10);
+
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + '%';
+            }
+        }
+    }
     $.getJSON(sectorsAPI, {
             sector: sector
         })
@@ -18,11 +32,22 @@ function symbolListSector(sector) {
             $.each(data[Object.keys(data)], function(i, item) {
                 t.row.add([
                     '<a class="symbol_a" value=' + item.name + '>' + item.name + '</a>',
-                    item["hotness"],
-                    item['BS']
+                    item.hotness + '<div class="HTbar" id="' + item.name + 'HT" value=' + item.hotness + '></div>',
+                    item.BS + '<div class="BSbar" id="' + item.name + 'BS" value=' + item.BS + '></div>',
                 ]).draw(false);
+                $('#'+item.name+"HT").css('width',  item.hotness.slice(2)+'%');
+                console.log()
+                if (Math.sign(parseFloat(item.BS))==-1){
+                  $('#'+item.name+"BS").css('background-color',  "#E57375");
+                  $('#'+item.name+"BS").css('width',  Math.sqrt(Math.abs(parseFloat(item.BS)))*100+'%');
+                  // console.log(item.BS.slice(3,5));
+                }else{
+                  $('#'+item.name+"BS").css('background-color',  "#ACE573");
+                  $('#'+item.name+"BS").css('width',  Math.sqrt(Math.abs(parseFloat(item.BS)))*100+'%');
+                }
             });
         });
+    // drawHotness();
 }
 
 function symbolInfo(symbol) {
@@ -196,8 +221,7 @@ $(document).ready(function() {
             twitsMessage(val);
         }
     });
-
-
+    //// autocomplete
     let availableTags = symbols;
     var options = {
         data: availableTags,
