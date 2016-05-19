@@ -344,6 +344,5 @@ $(document).ready(function() {
         $("#stream-list").empty();
         twitsMessage(val);
     });
-    var messages = document.getElementsByClassName("messageli");
-    console.log(messages.childNodes);
+
 });
