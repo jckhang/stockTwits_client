@@ -5,6 +5,7 @@ const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
 const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
 const sectorsAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
 const searchAPI = "https://stocktwitsbackend.herokuapp.com/search";
+const keywordsAPI = "https://stocktwitsbackend.herokuapp.com/nlp"
 const sparklineAPI = "https://stocktwitsbackend.herokuapp.com/sparkline";
 const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
@@ -35,15 +36,14 @@ function symbolListSector(sector) {
                     item.hotness + '<div class="HTbar" id="' + item.name + 'HT" value=' + item.hotness + '></div>',
                     item.BS + '<div class="BSbar" id="' + item.name + 'BS" value=' + item.BS + '></div>',
                 ]).draw(false);
-                $('#'+item.name+"HT").css('width',  item.hotness.slice(2)+'%');
-                console.log()
-                if (Math.sign(parseFloat(item.BS))==-1){
-                  $('#'+item.name+"BS").css('background-color',  "#E57375");
-                  $('#'+item.name+"BS").css('width',  Math.sqrt(Math.abs(parseFloat(item.BS)))*100+'%');
-                  // console.log(item.BS.slice(3,5));
-                }else{
-                  $('#'+item.name+"BS").css('background-color',  "#ACE573");
-                  $('#'+item.name+"BS").css('width',  Math.sqrt(Math.abs(parseFloat(item.BS)))*100+'%');
+                $('#' + item.name + "HT").css('width', item.hotness.slice(2) + '%');
+                if (Math.sign(parseFloat(item.BS)) == -1) {
+                    $('#' + item.name + "BS").css('background-color', "#E57375");
+                    $('#' + item.name + "BS").css('width', Math.sqrt(Math.abs(parseFloat(item.BS))) * 100 + '%');
+                    // console.log(item.BS.slice(3,5));
+                } else {
+                    $('#' + item.name + "BS").css('background-color', "#ACE573");
+                    $('#' + item.name + "BS").css('width', Math.sqrt(Math.abs(parseFloat(item.BS))) * 100 + '%');
                 }
             });
         });
@@ -59,6 +59,34 @@ function symbolInfo(symbol) {
             $.each(symbolInfoField, function(i, item) {
                 document.getElementById(symbolInfoId[i]).innerHTML = record[item]
             })
+        })
+}
+
+function keywords(symbol) {
+    $.getJSON(keywordsAPI, {
+            symbol: symbol
+        })
+        .done(function(data) {
+            let keywords = data.words;
+            let tbl = document.getElementById("keywords");
+            var keys = Object.keys(keywords);
+            var tblBody = document.createElement("tbody");
+            for (var i = 0; i < 6; i++) {
+                var row = document.createElement("tr");
+                for (var j = 0; j < 4; j++) {
+                    // Create a <td> element and a text node, make the text
+                    // node the contents of the <td>, and put the <td> at
+                    // the end of the table row
+                    var cell = document.createElement("td");
+                    var cellText = document.createTextNode(keys[j+4*i]);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                }
+                // add the row to the end of the table body??
+                tblBody.appendChild(row);
+            }
+            // put the <tbody> in the <table>?
+            tbl.appendChild(tblBody);
         })
 }
 
@@ -217,6 +245,8 @@ $(document).ready(function() {
             document.getElementById("symbol-header").innerHTML = val;
             symbolInfo(val);
             document.getElementById("symbol-search").value = "";
+            $("#keywords").empty();
+            keywords(val);
             $("#stream-list").empty();
             twitsMessage(val);
         }
@@ -244,6 +274,8 @@ $(document).ready(function() {
                 let val = $("#symbol-search").getSelectedItemData().symbol;
                 document.getElementById("symbol-header").innerHTML = val;
                 symbolInfo(val);
+                $("#keywords").empty();
+                keywords(val);
                 document.getElementById("symbol-search").value = "";
                 $("#stream-list").empty();
                 twitsMessage(val);
@@ -278,6 +310,8 @@ $(document).ready(function() {
     symbolInfo(symbol_name);
     // Draw symbol price
     drawChart(symbol_name);
+    // Add most common keywords
+    keywords(symbol_name);
     // Append Twits
     twitsMessage('all');
     //// Onclick symbol
@@ -287,6 +321,8 @@ $(document).ready(function() {
         symbol_name = value.getAttribute("value");
         document.getElementById("symbol-header").innerHTML = symbol_name;
         symbolInfo(symbol_name);
+        $("#keywords").empty();
+        keywords(symbol_name);
         drawChart(symbol_name);
         $("#stream-list").empty();
         twitsMessage(symbol_name);
