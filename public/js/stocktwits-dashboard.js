@@ -84,7 +84,7 @@ function keywords(symbol) {
                     // node the contents of the <td>, and put the <td> at
                     // the end of the table row
                     var cell = document.createElement("td");
-                    var cellText = document.createTextNode(keys[j + 4 * i]+ '   '+(keywords[keys[j + 4 * i]]/sum*100).toFixed(3) +"%");
+                    var cellText = document.createTextNode(keys[j + 4 * i]+ (keywords[keys[j + 4 * i]]/sum*100).toFixed(3) +"%");
                     var cellBar = document.createElement("div");
                     cellBar.setAttribute("class", 'KWbar');
                     cellBar.style.width = keywords[keys[j + 4 * i]]/sum*100+"%"

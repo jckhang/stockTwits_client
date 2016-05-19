@@ -3,9 +3,8 @@
     width: 485px;
 }
 #keywords > tbody > tr > td {
-    overflow: hidden;
     width: 10px;
-    height: 45px;
+    height: 35px;
 }
 .KWbar {
     height: 2px;
@@ -755,7 +754,7 @@ body {
     clear: both;
     list-style-type: none;
     margin: 0;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }
 .stream-list>li {
@@ -997,8 +996,7 @@ sup {
     padding: 14px 1px 6px 25px;
 }
 .navbar-form {
-    margin-top: 13px;
-    padding: 0;
+    padding: 8px 0 0 25px;
 }
 .navbar-form input.form-control {
     border-style: solid;
