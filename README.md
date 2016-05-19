@@ -1,5 +1,5 @@
 # Group-18-StockTweets
-Group Member: Elizabeth Arlene Syso, Yuxiang Zhang, Bonan Yuan, Tianqi Jiang
+Group Member: Elizabeth Arlene Syso ([github-user-name](https://github.com/elizabethsyso)), Yuxiang Zhang([github-user-name](https://github.com/jckhang)), Bonan Yuan([github-user-name](https://github.com/bonanyuan)), Tianqi Jiang ([github-user-name](https://github.com/TianqiJiang)).
 
 For most recent update of the dashboard, please visit [GitHub](https://github.com/jckhang/stockTwits_client) or [Heroku](https://stockdashboard.herokuapp.com/).
 
