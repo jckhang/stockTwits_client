@@ -1,8 +1,9 @@
 .luna-nav.nav .nav-info {
     margin-top: 10px;
-    padding: 10px 25px 25px 25px;
+    padding: 20px 10px 20px 10px;
     font-size: 12px;
-    background-color: #24262d;
+    height: 85px;
+    background-color: #000000;
 }
 
 .luna-nav.nav .nav-info i {
@@ -830,9 +831,6 @@ sup {
 }
 #mobile-menu .left-nav-toggle {
     padding-right: 25px;
-}
-.luna-nav.nav {
-    padding: 15px 10px 10px 10px;
 }
 .luna-nav.nav table, .luna-nav.nav .nav-category {
     padding: 8px 15px 0px 25px;
