@@ -258,13 +258,14 @@ $(document).ready(function() {
             document.getElementById("symbol-search").value = "";
             $("#keywords").empty();
             keywords(val);
+            drawChart(val);
             $("#stream-list").empty();
             twitsMessage(val);
         }
     });
     //// autocomplete
     let availableTags = symbols;
-    var options = {
+    let options = {
         data: availableTags,
         getValue: "symbol",
         list: {
@@ -289,6 +290,7 @@ $(document).ready(function() {
                 $("#keywords").empty();
                 keywords(val);
                 document.getElementById("symbol-search").value = "";
+                drawChart(val);
                 $("#stream-list").empty();
                 twitsMessage(val);
             }
@@ -342,4 +344,6 @@ $(document).ready(function() {
         $("#stream-list").empty();
         twitsMessage(val);
     });
+    var messages = document.getElementsByClassName("messageli");
+    console.log(messages.childNodes);
 });
