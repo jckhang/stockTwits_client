@@ -1,8 +1,13 @@
+.symbol-container {
+    width: 100%;
+    height: auto;
+    /*display: flex;*/
+}
 .eac-square input {
-  background-image: url("images/icon_search.png");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  width:5px;
+    background-image: url("images/icon_search.png");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    width: 5px;
 }
 #keywords {
     table-layout: fixed;
@@ -442,7 +447,6 @@
 .text-danger {
     color: #DB524B;
 }
-
 .label-accent {
     background-color: #f6a821;
 }

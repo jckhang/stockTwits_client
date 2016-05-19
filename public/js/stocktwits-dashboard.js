@@ -76,7 +76,6 @@ function keywords(symbol) {
             for (var key in keywords) {
                 sum += keywords[key];
             };
-            console.log(sum);
             for (var i = 0; i < 6; i++) {
                 var row = document.createElement("tr");
                 for (var j = 0; j < 4; j++) {
@@ -253,7 +252,8 @@ $(document).ready(function() {
         if (keycode == '13') {
             // get input value
             let val = $(this).val().toUpperCase();
-            document.getElementById("symbol-header").innerHTML = val;
+            let name = (symbols.filter(x=> x.symbol === val)[0]).name;
+            document.getElementById("symbol-header").innerHTML = name;
             symbolInfo(val);
             document.getElementById("symbol-search").value = "";
             $("#keywords").empty();
@@ -283,7 +283,8 @@ $(document).ready(function() {
             },
             onSelectItemEvent: function() {
                 let val = $("#symbol-search").getSelectedItemData().symbol;
-                document.getElementById("symbol-header").innerHTML = val;
+                let name = (symbols.filter(x=> x.symbol === val)[0]).name;
+                document.getElementById("symbol-header").innerHTML = name;
                 symbolInfo(val);
                 $("#keywords").empty();
                 keywords(val);
@@ -317,25 +318,28 @@ $(document).ready(function() {
     // "overview": click on each symbol and refresh symbol-info information
     //// Onload
     // Append symbol info
-    let symbol_name = 'AAPL';
-    symbolInfo(symbol_name);
+    let val = 'AAPL';
+    let name = (symbols.filter(x=> x.symbol === val)[0]).name;
+    document.getElementById("symbol-header").innerHTML = name;
+    symbolInfo(val);
     // Draw symbol price
-    drawChart(symbol_name);
+    drawChart(val);
     // Add most common keywords
-    keywords(symbol_name);
+    keywords(val);
     // Append Twits
     twitsMessage('all');
     //// Onclick symbol
     $('#overview tbody').on('click', 'td', function() {
         let cell = overview.cell(this).node();
         let value = cell.childNodes[0];
-        symbol_name = value.getAttribute("value");
-        document.getElementById("symbol-header").innerHTML = symbol_name;
-        symbolInfo(symbol_name);
+        val = value.getAttribute("value");
+        let name = (symbols.filter(x=> x.symbol === val)[0]).name;
+        document.getElementById("symbol-header").innerHTML = name;
+        symbolInfo(val);
         $("#keywords").empty();
-        keywords(symbol_name);
-        drawChart(symbol_name);
+        keywords(val);
+        drawChart(val);
         $("#stream-list").empty();
-        twitsMessage(symbol_name);
+        twitsMessage(val);
     });
 });
