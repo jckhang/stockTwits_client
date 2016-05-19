@@ -46,9 +46,14 @@
             text-align: left;
         }
     </style>
+    <script>
+        function pageloadEvery(t) {
+            setTimeout('location.reload(true)', t);
+        }
+    </script>
 </head>
 
-<body class="pace-done" crossrider_data_store_temp="{}">
+<body onload="javascript:pageloadEvery(30000);" class="pace-done" crossrider_data_store_temp="{}">
     <div class="pace  pace-inactive">
         <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
             <div class="pace-progress-inner"></div>
@@ -62,8 +67,9 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">
-                    Stock Insights <span>for S&P 100</span>
-                </a>
+                    Stock Insights
+                    <span>for S&P 100</span>
+                    </a>
                 </div>
                 <div id="navbar">
                     <form class="navbar-form navbar-left" onSubmit="return false;">
@@ -98,14 +104,15 @@
                             Materials
                         </label>
                     </div>
+
                 </div>
             </div>
         </nav>
         <!-- End header-->
         <!-- Navigation-->
         <aside class="navigation">
-            <nav class="nav luna-nav" style="overflow-y:scroll; overflow-x:hidden; height:640px;">
-                <div class="table-responsive">
+            <nav class="nav luna-nav">
+                <div class="table-responsive" style="overflow-y:scroll; overflow-x:hidden; height:520px;">
                     <div id="overview_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                         <table id="overview" class="dataTable" role="grid">
                             <thead>
@@ -120,6 +127,12 @@
                         </table>
                     </div>
                 </div>
+                <li class="nav-info">
+                    <div class="m-t-xs">
+                        <a>Stock Insigts</a> is the class project of 2016 NYU InfoViz Class. Follow us on github.
+                    </div>
+                    <a class="github-button" href="https://github.com/jckhang/stockTwits_client" data-count-href="/jckhang/stockTwits_client/stargazers" data-count-api="/repos/jckhang/stockTwits_client#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star jckhang/stockTwits_client on GitHub">Star</a>
+                </li>
             </nav>
         </aside>
         <!-- End navigation-->
@@ -241,6 +254,8 @@
     <script src="js/symbols.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="js/datatables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.3/d3plus.min.js"></script>

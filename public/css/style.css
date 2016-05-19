@@ -1,3 +1,14 @@
+.luna-nav.nav .nav-info {
+    margin-top: 10px;
+    padding: 10px 25px 25px 25px;
+    font-size: 12px;
+    background-color: #24262d;
+}
+
+.luna-nav.nav .nav-info i {
+    font-size: 34px;
+}
+
 .symbol-container {
     width: 100%;
     height: auto;
