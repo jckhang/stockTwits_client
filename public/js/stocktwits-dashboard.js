@@ -5,7 +5,7 @@ const symbolInfoField = ["prev_close", "open", "volume", 'pe', 'eps'];
 const symbolInfoId = ["symbol-pc", "symbol-op", "symbol-vo", "symbol-pe", "symbol-eps"];
 const sectorsAPI = "https://stocktwitsbackend.herokuapp.com/sectors";
 const searchAPI = "https://stocktwitsbackend.herokuapp.com/search";
-const keywordsAPI = "https://stocktwitsbackend.herokuapp.com/nlp"
+const keywordsAPI = "https://stocktwitsbackend.herokuapp.com/keywords"
 const sparklineAPI = "https://stocktwitsbackend.herokuapp.com/sparkline";
 const twitsAPI = "https://stocktwitsbackend.herokuapp.com/twits";
 
@@ -67,7 +67,7 @@ function keywords(symbol) {
             symbol: symbol
         })
         .done(function(data) {
-            let keywords = data.words;
+            let keywords = data.data[0];
             let tbl = document.getElementById("keywords");
             var keys = Object.keys(keywords);
             var tblBody = document.createElement("tbody");
@@ -84,7 +84,7 @@ function keywords(symbol) {
                     // node the contents of the <td>, and put the <td> at
                     // the end of the table row
                     var cell = document.createElement("td");
-                    var cellText = document.createTextNode(keys[j + 4 * i]+ "  "+(keywords[keys[j + 4 * i]]/sum*100).toFixed(3) +"%");
+                    var cellText = document.createTextNode(keys[j + 4 * i]+ "  "+(keywords[keys[j + 4 * i]]/sum*100).toFixed(1) +"%");
                     var cellBar = document.createElement("div");
                     cellBar.setAttribute("class", 'KWbar');
                     cellBar.style.width = keywords[keys[j + 4 * i]]/sum*100+"%"
