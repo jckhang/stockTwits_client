@@ -71,6 +71,12 @@ function keywords(symbol) {
             let tbl = document.getElementById("keywords");
             var keys = Object.keys(keywords);
             var tblBody = document.createElement("tbody");
+            var sum = 0;
+
+            for (var key in keywords) {
+                sum += keywords[key];
+            };
+            console.log(sum);
             for (var i = 0; i < 6; i++) {
                 var row = document.createElement("tr");
                 for (var j = 0; j < 4; j++) {
@@ -78,8 +84,13 @@ function keywords(symbol) {
                     // node the contents of the <td>, and put the <td> at
                     // the end of the table row
                     var cell = document.createElement("td");
-                    var cellText = document.createTextNode(keys[j+4*i]);
+                    var cellText = document.createTextNode(keys[j + 4 * i]+ '   '+(keywords[keys[j + 4 * i]]/sum*100).toFixed(3) +"%");
+                    var cellBar = document.createElement("div");
+                    cellBar.setAttribute("class", 'KWbar');
+                    cellBar.style.width = keywords[keys[j + 4 * i]]/sum*100+"%"
+
                     cell.appendChild(cellText);
+                    cell.appendChild(cellBar);
                     row.appendChild(cell);
                 }
                 // add the row to the end of the table body??

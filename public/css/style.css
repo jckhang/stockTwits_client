@@ -1,12 +1,18 @@
-#keywords{
+#keywords {
     table-layout: fixed;
     width: 485px;
 }
-
-#keywords > td {
-    border: 1px solid black;
+#keywords > tbody > tr > td {
     overflow: hidden;
     width: 10px;
+    height: 45px;
+}
+.KWbar {
+    height: 2px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #f6a821;
+    width: 5px;
 }
 .HTbar {
     height: 2px;
